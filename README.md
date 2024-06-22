@@ -1,7 +1,7 @@
 # Aishwarya Nayak
 
 ## Contact Information
-- **Phone:** 716-907-8031
+- **Phone:** +1(716)-907-8031
 - **Email:** [nayakaishwarya12@yahoo.in](mailto:nayakaishwarya12@yahoo.in)
 - **LinkedIn:** [linkedin.com/in/aishwarya-nayak-](https://linkedin.com/in/aishwarya-nayak-)
 - **GitHub:** [github.com/A1SHWARYANAYAK](https://github.com/A1SHWARYANAYAK)
@@ -9,17 +9,18 @@
 ## Education
 **University at Buffalo, The State University of New York**  
 *Master of Science in Data Science, May 2025*  
-GPA: 3.5
+GPA: 3.5/4
 
 **Symbiosis Institute of Technology**  
 *Bachelor of Technology in Electronics & Telecommunication Engineering, December 2019*  
-GPA: 8.7
+GPA: 8.7/10
 
 ## Skills
 - **Programming Languages:** Python, R, Java, Scala, MATLAB
 - **Big Data, AI & Machine Learning:** Spark, Hadoop, MapReduce, Python (scikit-learn, matplotlib, numpy, pandas, pyTorch, TensorFlow, spark), SQL/PostgreSQL
-- **Data Science & Miscellaneous Technologies:** Data science pipeline (cleansing, wrangling, visualization, modeling, interpretation, mining), automation testing (SBT), Git, SonarQube, Fortify, algorithmic problem solving, MS Excel, RESTful APIs, Statistical analysis, Probability theory
+- **Data Science & Miscellaneous Technologies:** Data science pipeline (cleansing, wrangling, visualization, modeling, interpretation, mining), automation testing (SBT), Git, SonarQube, Fortify, MS Excel, RESTful APIs, Statistical analysis, Probability theory
 - **Data Visualization & Statistical Tools:** Power BI, Tableau, Stata
+- **Soft Skills:** Strong Verbal & Written Communication, Team Player, Strong Analytical and Quantitative Problem Solving, Collaborative
 
 ## Projects
 ### [Predictive Modelling for Early Disease Detection and Proactive Medical Intervention](https://github.com/A1SHWARYANAYAK/Machine-Learning-Project-on-Heart-Disease-Detection)
