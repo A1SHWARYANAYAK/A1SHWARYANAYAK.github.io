@@ -8,7 +8,7 @@
 
 ## Education
 **University at Buffalo, The State University of New York**  
-*Master of Science in Data Science, May 2025*  
+*Master of Science in Data Science, December 2024*  
 GPA: 3.5/4
 
 **Symbiosis Institute of Technology**  
@@ -18,7 +18,7 @@ GPA: 8.7/10
 ## Skills
 - **Programming Languages:** Python, R, Java, Scala, MATLAB
 - **Big Data, AI & Machine Learning:** Spark, Hadoop, MapReduce, Python (scikit-learn, matplotlib, numpy, pandas, pyTorch, TensorFlow, spark), SQL/PostgreSQL
-- **Data Science & Miscellaneous Technologies:** Data science pipeline (cleansing, wrangling, visualization, modeling, interpretation, mining), automation testing (SBT), Git, SonarQube, Fortify, MS Excel, RESTful APIs, Statistical analysis, Probability theory
+- **Data Science & Miscellaneous Technologies:** Data science pipeline (cleansing, wrangling, visualization, modeling, interpretation, mining), Deep Learning, automation testing (SBT), Git, SonarQube, Fortify, MS Excel, RESTful APIs, Statistical analysis, Probability theory
 - **Data Visualization & Statistical Tools:** Power BI, Tableau, Stata
 - **Soft Skills:** Strong Verbal & Written Communication, Team Player, Strong Analytical and Quantitative Problem Solving, Collaborative
 
