@@ -47,6 +47,15 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+        .skill-tags span {
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -101,7 +110,7 @@
                                 Designed an AI-driven assistant leveraging LangChain and OpenAI APIs, integrating knowledge graphs and retrieval-augmented generation (RAG) pipelines. Engineered scalable data ingestion workflows and graph-based data models to deliver personalized education and career guidance.
                             </p>
                         </div>
-                        <div class="flex gap-2">
+                        <div class="skill-tags">
                               <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Python</span>
                               <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">LangChain</span>
                               <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Data Pipelines</span>
@@ -121,7 +130,7 @@
                                 Built reactive microservices in Scala with real-time data pipelines powered by Kafka and Solr. Developed ETL processes for streaming and indexing financial data, enabling timely analytics and reporting. Streamlined CI/CD deployment using Docker and Jenkins.
                             </p>
                         </div>
-                        <div class="flex gap-2">
+                        <div class="skill-tags">
                           <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm">Scala</span>
                           <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Kafka</span>
                           <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Solr</span>
@@ -141,7 +150,7 @@
                         Developed full-stack modules using Java, AngularJS, and SQL to manage and visualize financial data. Ensured code quality with JUnit, Katalon testing, SonarQube analysis, and Fortify security scans.
                       </p>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="skill-tags">
                       <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Java</span>
                       <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">AngularJS</span>
                       <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">SQL</span>
