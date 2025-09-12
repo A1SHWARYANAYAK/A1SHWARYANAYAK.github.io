@@ -19,6 +19,10 @@
         @keyframes floating { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
         .skill-tags span { white-space: nowrap; }
+        /* New decorative divider and interactive effects */
+        .divider { width: 80px; height: 4px; border-radius: 9999px; margin: 0.75rem auto 0; }
+        .skill-card { transition: transform 200ms ease, box-shadow 200ms ease; }
+        .skill-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -39,20 +43,21 @@
     <header class="min-h-screen flex items-center justify-center animated-bg">
         <div class="text-center px-4 animate__animated animate__fadeIn">
             <h1 class="text-6xl font-bold mb-6 floating">Aishwarya Nayak</h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90">AI & Backend Engineer | <span class="font-semibold">4+ YOE</span> | Python · SQL · GCP · Spark · Scala | Building reliable LLM features on solid data systems</p>
-            <a href="#projects" class="glass-effect px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300">Explore My Work</a>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">AI & Backend Engineer | 4+ YOE | Python · SQL · GCP · Spark · Scala | Building reliable LLM features on solid data systems</p>
+            <a href="#experience" class="glass-effect px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300">Explore My Work</a>
         </div>
     </header>
 
     <!-- ABOUT -->
-    <section id="about" class="py-32 px-4 bg-gray-800">
+    <section id="about" class="py-32 px-4 bg-gradient-to-r from-gray-800 via-gray-900 to-black">
         <div class="max-w-4xl mx-auto scroll-reveal">
-            <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
-            <div class="glass-effect p-8 rounded-2xl space-y-6">
-                <p class="text-gray-300 text-lg leading-relaxed">
+            <h2 class="text-4xl font-bold text-center mb-2 text-blue-300">About Me</h2>
+            <div class="divider bg-blue-400"></div>
+            <div class="glass-effect p-8 rounded-2xl space-y-6 mt-8 shadow-lg">
+                <p class="text-gray-200 text-lg leading-relaxed">
                     I’m an early-career <strong>AI Engineer</strong> with a solid foundation in software and data engineering (SUNY Buffalo – <strong>MS Data Science</strong>). I build practical AI features on top of reliable data pipelines—focusing on <strong>prompt design</strong>, <strong>retrieval-augmented generation (RAG)</strong>, and <strong>model evaluation</strong>. Recently, I’ve contributed to applied AI work at <strong>Reality AI Lab</strong> (LLM workflows) and <strong>Handshake / Project Canary</strong> (vision-focused model evaluation & image annotation).
                 </p>
-                <ul class="list-disc list-inside leading-relaxed text-gray-300">
+                <ul class="list-disc list-inside leading-relaxed text-gray-200 space-y-2">
                     <li><strong>AI Engineering:</strong> Prompt engineering, lightweight RAG, and systematic evaluation.</li>
                     <li><strong>Backend & Data:</strong> Python/Scala services, ETL/ELT, SQL modeling; containerization and CI/CD on GCP.</li>
                     <li><strong>Soft Skills:</strong> Strong communication, structured problem-solving, and effective cross-team collaboration.</li>
@@ -62,53 +67,54 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="py-32 px-4 bg-gray-900">
+    <section id="experience" class="py-32 px-4 bg-gradient-to-r from-black via-gray-900 to-gray-800">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16">Experience</h2>
-            <div class="space-y-6">
+            <h2 class="text-4xl font-bold text-center mb-2 text-purple-300">Experience</h2>
+            <div class="divider bg-purple-400"></div>
+            <div class="space-y-8 mt-8">
                 <!-- Handshake -->
-                <div class="glass-effect p-6 rounded-2xl scroll-reveal">
+                <div class="glass-effect p-6 rounded-2xl scroll-reveal shadow-md hover:shadow-xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-2xl font-bold">Handshake – AI Engineer (Project Canary)</h3>
+                        <h3 class="text-2xl font-bold text-blue-200"><i class="fas fa-robot mr-2 text-blue-400"></i>Handshake – AI Engineer (Project Canary)</h3>
                         <span class="text-sm text-gray-300">Sep 2025 – Present • Buffalo, NY</span>
                     </div>
-                    <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
-                        <li>Evaluated <strong>200+ images</strong> to date for CV model quality; executed guideline-based checks and edge-case reviews.</li>
+                    <ul class="mt-4 list-disc list-inside text-gray-200 space-y-2">
+                        <li>Evaluated <strong>200+ images</strong> for CV model quality; executed guideline-based checks and edge-case reviews.</li>
                         <li>Designed <strong>30+ prompts/test cases</strong> for visual tasks (incl. finite-automata diagrams) to stress-test outputs.</li>
                         <li>Standardized sourcing & evidence capture to improve reproducibility and auditability.</li>
                     </ul>
                 </div>
                 <!-- Reality AI Lab -->
-                <div class="glass-effect p-6 rounded-2xl scroll-reveal">
+                <div class="glass-effect p-6 rounded-2xl scroll-reveal shadow-md hover:shadow-xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-2xl font-bold">Reality AI Lab – AI Engineer (Projects)</h3>
+                        <h3 class="text-2xl font-bold text-blue-200"><i class="fas fa-brain mr-2 text-pink-400"></i>Reality AI Lab – AI Engineer (Projects)</h3>
                         <span class="text-sm text-gray-300">Mar 2025 – Present • Buffalo, NY</span>
                     </div>
-                    <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                    <ul class="mt-4 list-disc list-inside text-gray-200 space-y-2">
                         <li>Built and iterated small <strong>LLM features</strong> (summarization/Q&A) using prompt templates and retrieval.</li>
                         <li>Created lean <strong>evaluation checklists</strong> (accuracy, faithfulness, style) with human-in-the-loop triage.</li>
                         <li>Integrated Python data prep with <strong>BigQuery</strong> artifacts to support retrieval and analytics.</li>
                     </ul>
                 </div>
                 <!-- Mocapay -->
-                <div class="glass-effect p-6 rounded-2xl scroll-reveal">
+                <div class="glass-effect p-6 rounded-2xl scroll-reveal shadow-md hover:shadow-xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-2xl font-bold">Mocapay – Software/Data Engineer</h3>
-                        <span class="text-sm text-gray-300">Aug 2021 – Jun 2023</span>
+                        <h3 class="text-2xl font-bold text-blue-200"><i class="fas fa-database mr-2 text-green-400"></i>Mocapay – Software/Data Engineer</h3>
+                        <span class="text-sm text-gray-300">Aug 2021 – Jun 2023 • Delhi, IN</span>
                     </div>
-                    <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                    <ul class="mt-4 list-disc list-inside text-gray-200 space-y-2">
                         <li>Developed <strong>5+</strong> Scala microservices; implemented <strong>Kafka</strong> pipelines and ETL for analytics.</li>
                         <li>Containerized and automated deployments with <strong>Docker</strong>, improving release reliability.</li>
                         <li>Partnered with stakeholders to deliver <strong>near‑real‑time</strong> dashboards and alerts.</li>
                     </ul>
                 </div>
                 <!-- TCS -->
-                <div class="glass-effect p-6 rounded-2xl scroll-reveal">
+                <div class="glass-effect p-6 rounded-2xl scroll-reveal shadow-md hover:shadow-xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-2xl font-bold">TCS – Software Engineer</h3>
-                        <span class="text-sm text-gray-300">Jan 2020 – Jul 2021</span>
+                        <h3 class="text-2xl font-bold text-blue-200"><i class="fas fa-code mr-2 text-yellow-400"></i>TCS – Software Engineer</h3>
+                        <span class="text-sm text-gray-300">Jan 2020 – Jul 2021 • Indore, IN</span>
                     </div>
-                    <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2">
+                    <ul class="mt-4 list-disc list-inside text-gray-200 space-y-2">
                         <li>Built data-driven modules with <strong>Java/SQL/AngularJS</strong> for finance reporting.</li>
                         <li>Contributed <strong>unit/integration tests</strong> and CI checks to improve code quality.</li>
                         <li>Supported stakeholders across <strong>3</strong> functional teams with ad-hoc analysis and fixes.</li>
@@ -119,21 +125,21 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="py-32 px-4 bg-gray-900">
+    <section id="skills" class="py-32 px-4 bg-gradient-to-r from-gray-800 via-black to-gray-900">
         <div class="max-w-5xl mx-auto scroll-reveal">
-            <h2 class="text-4xl font-bold text-center mb-12">Top Skills</h2>
-            <div class="glass-effect p-8 rounded-2xl">
+            <h2 class="text-4xl font-bold text-center mb-2 text-green-300">Top Skills</h2>
+            <div class="divider bg-green-400"></div>
+            <div class="glass-effect p-8 rounded-2xl mt-8">
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-                    <div class="p-4 rounded-xl bg-gray-800">Python</div>
-                    <div class="p-4 rounded-xl bg-gray-800">SQL</div>
-                    <div class="p-4 rounded-xl bg-gray-800">Prompt Engineering</div>
-                    <div class="p-4 rounded-xl bg-gray-800">RAG</div>
-                    <div class="p-4 rounded-xl bg-gray-800">Model Evaluation</div>
-                    <div class="p-4 rounded-xl bg-gray-800">Spark</div>
-                    <div class="p-4 rounded-xl bg-gray-800">GCP </div>
-                    <div class="p-4 rounded-xl bg-gray-800">Docker</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fab fa-python mr-2"></i>Python</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fas fa-database mr-2"></i>SQL</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fas fa-terminal mr-2"></i>Prompt Engineering</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fas fa-search mr-2"></i>RAG</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fas fa-check-circle mr-2"></i>Model Evaluation</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fas fa-bolt mr-2"></i>Spark</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fab fa-google mr-2"></i>GCP</div>
+                    <div class="p-4 rounded-xl bg-gray-800 skill-card"><i class="fab fa-docker mr-2"></i>Docker</div>
                 </div>
-                <p class="text-gray-400 text-center mt-6">Open to AI Engineer, Data Engineer, or Analytics Engineer roles building practical AI features on solid data foundations.</p>
             </div>
         </div>
     </section>
@@ -141,8 +147,9 @@
     <!-- CONTACT -->
     <section id="contact" class="py-32 px-4 bg-gray-800">
         <div class="max-w-4xl mx-auto text-center scroll-reveal">
-            <h2 class="text-4xl font-bold mb-12">Get In Touch</h2>
-            <div class="glass-effect p-8 rounded-2xl">
+            <h2 class="text-4xl font-bold mb-2 text-pink-300">Get In Touch</h2>
+            <div class="divider bg-pink-400"></div>
+            <div class="glass-effect p-8 rounded-2xl mt-8">
                 <p class="text-gray-300 mb-8">Let’s connect to build impactful, reliable AI systems together.</p>
                 <a href="mailto:nayakaishwarya12@yahoo.in" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity">Contact Me</a>
                 <p class="mt-6 text-sm text-gray-400">
