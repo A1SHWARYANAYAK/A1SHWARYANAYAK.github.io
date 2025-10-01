@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aishwarya Nayak | Portfolio</title>
+    <title>Aishwarya Nayak | AI Engineer Portfolio</title>
+    <meta name="description" content="AI Engineer with 4 years in software. I ship reliable LLM features—agentic workflows, RAG, evaluation, and guardrails."/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <style>
         /* Base visuals */
         .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .animated-bg { background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; }
+        .animated-bg { background: linear-gradient(-45deg, #111827, #1f2937, #0ea5e9, #8b5cf6); background-size: 400% 400%; animation: gradient 16s ease infinite; }
         @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .scroll-reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
         .floating { animation: floating 3s ease-in-out infinite; }
         @keyframes floating { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
-        /* Colorful section backgrounds */
+        /* Section backgrounds */
         .bg-about { background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0b1220 100%); }
         .bg-experience { background: radial-gradient(1200px 600px at 10% 10%, rgba(126,34,206,0.25), transparent 60%), radial-gradient(900px 500px at 90% 30%, rgba(14,165,233,0.2), transparent 60%), #0b0f1a; }
         .bg-skills { background: linear-gradient(135deg, #0b1220 0%, #0f172a 50%, #111827 100%); }
 
-        /* Decorative divider & accents */
+        /* Accents */
         .divider { width: 84px; height: 4px; border-radius: 9999px; margin: 0.75rem auto 0; background: linear-gradient(90deg,#60a5fa,#a78bfa,#f472b6); }
         .card { box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
         .skill-card { transition: transform 200ms ease, box-shadow 200ms ease; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); }
@@ -52,7 +53,7 @@
     <header class="min-h-screen flex items-center justify-center animated-bg pt-20">
         <div class="text-center px-4 animate__animated animate__fadeIn max-w-3xl truncate-wrap">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 floating leading-tight">Aishwarya Nayak</h1>
-            <p class="text-base sm:text-lg md:text-2xl mb-6 opacity-90 leading-relaxed">AI & Backend Engineer | 4+ YOE | Python · SQL · GCP · Spark · Scala | Building reliable LLM features on solid data systems</p>
+            <p class="text-base sm:text-lg md:text-2xl mb-6 opacity-90 leading-relaxed">AI Engineer • 4 yrs SWE • Shipping reliable LLM features — agentic workflows, RAG, evaluation & guardrails</p>
             <a href="#experience" class="glass-effect px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300 inline-block w-full sm:w-auto">Explore My Work</a>
         </div>
     </header>
@@ -64,12 +65,12 @@
             <div class="divider"></div>
             <div class="glass-effect p-6 sm:p-8 rounded-2xl space-y-5 sm:space-y-6 card mt-8">
                 <p class="text-gray-200 text-base sm:text-lg leading-relaxed truncate-wrap">
-                    I’m an early-career <strong>AI Engineer</strong> with a solid foundation in software and data engineering (SUNY Buffalo – <strong>MS Data Science</strong>). I build practical AI features on top of reliable data pipelines—focusing on <strong>prompt design</strong>, <strong>retrieval-augmented generation (RAG)</strong>, and <strong>model evaluation</strong>. Recently, I’ve contributed to applied AI work at <strong>Reality AI Lab</strong> (LLM workflows) and <strong>Handshake / Project Canary</strong> (vision-focused model evaluation & image annotation).
+                    I’m an <strong>AI Engineer</strong> with ~4 years in software and an <strong>M.S. in Data Science (SUNY Buffalo)</strong>. I turn LLM ideas into dependable product features: <strong>agentic automations</strong>, <strong>RAG</strong> with tight grounding, and <strong>lightweight evaluation + guardrails</strong> so behavior is predictable in production. I optimize for clarity, safety, and speed—small iterations, measurable outcomes, and features that stand up to real users.
                 </p>
                 <ul class="list-disc list-inside leading-relaxed text-gray-200 space-y-2 text-base sm:text-lg">
-                    <li><strong>AI Engineering:</strong> Prompt engineering, lightweight RAG, and systematic evaluation.</li>
-                    <li><strong>Backend & Data:</strong> Python/Scala services, ETL/ELT, SQL modeling; containerization and CI/CD on GCP.</li>
-                    <li><strong>Soft Skills:</strong> Strong communication, structured problem-solving, and effective cross-team collaboration.</li>
+                    <li><strong>AI Engineering:</strong> Prompt design, function/tool calling, RAG, agentic workflows, sensible fallbacks.</li>
+                    <li><strong>Reliability:</strong> Deterministic schemas, multi-run checks, rubric-based error tagging, observability.</li>
+                    <li><strong>Recent focus:</strong> n8n orchestration, Postgres + pgvector retrieval, OpenAI/Claude integrations.</li>
                 </ul>
             </div>
         </div>
@@ -84,49 +85,49 @@
                 <!-- Handshake -->
                 <div class="glass-effect p-5 sm:p-6 rounded-2xl scroll-reveal card hover:shadow-2xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-robot mr-2 text-blue-400"></i>Handshake – AI Engineer (Project Canary)</h3>
-                        <span class="text-xs sm:text-sm text-gray-300">Sep 2025 – Present • Buffalo, NY</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-robot mr-2 text-blue-400" aria-hidden="true"></i>Handshake — Fellow / Independent Reviewer (AI)</h3>
+                        <span class="text-xs sm:text-sm text-gray-300">2025 • Buffalo, NY</span>
                     </div>
                     <ul class="mt-3 sm:mt-4 list-disc list-inside text-gray-200 space-y-1.5 sm:space-y-2 text-sm sm:text-base">
-                        <li>Evaluated <strong>200+ images</strong> for CV model quality; executed guideline-based checks and edge-case reviews.</li>
-                        <li>Designed <strong>30+ prompts/test cases</strong> for visual tasks (incl. finite-automata diagrams) to stress-test outputs.</li>
-                        <li>Standardized sourcing & evidence capture to improve reproducibility and auditability.</li>
+                        <li>Designed <strong>text & multimodal reasoning</strong> tasks with unambiguous requirements and strict answer formats; wrote step-by-step solutions.</li>
+                        <li>Built <strong>eval/guardrail loops</strong> (multi-run checks, deterministic schemas, rubric-based error tags) to reduce variance and surface reasoning gaps.</li>
+                        <li>Reviewed peer prompts with a structured rubric to raise acceptance quality within <strong>tight, time-boxed cycles</strong>.</li>
                     </ul>
                 </div>
                 <!-- Reality AI Lab -->
                 <div class="glass-effect p-5 sm:p-6 rounded-2xl scroll-reveal card hover:shadow-2xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-brain mr-2 text-pink-400"></i>Reality AI Lab – AI Engineer (Projects)</h3>
-                        <span class="text-xs sm:text-sm text-gray-300">Mar 2025 – Present • Buffalo, NY</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-brain mr-2 text-pink-400" aria-hidden="true"></i>Reality AI Lab — AI Engineer (Projects)</h3>
+                        <span class="text-xs sm:text-sm text-gray-300">2025 • Buffalo, NY</span>
                     </div>
                     <ul class="mt-3 sm:mt-4 list-disc list-inside text-gray-200 space-y-1.5 sm:space-y-2 text-sm sm:text-base">
-                        <li>Built and iterated small <strong>LLM features</strong> (summarization/Q&A) using prompt templates and retrieval.</li>
-                        <li>Created lean <strong>evaluation checklists</strong> (accuracy, faithfulness, style) with human-in-the-loop triage.</li>
-                        <li>Integrated Python data prep with <strong>BigQuery</strong> artifacts to support retrieval and analytics.</li>
+                        <li>Prototyped <strong>LLM features</strong> (summarization, Q&A) with prompt templates and retrieval; iterated with human-in-the-loop checks.</li>
+                        <li>Added <strong>lightweight observability</strong> and acceptance criteria to catch regressions early.</li>
+                        <li>Orchestrated <strong>multi-step automations</strong> (n8n) and tuned retrieval (pgvector) to improve accuracy and latency.</li>
                     </ul>
                 </div>
                 <!-- Mocapay -->
                 <div class="glass-effect p-5 sm:p-6 rounded-2xl scroll-reveal card hover:shadow-2xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-database mr-2 text-green-400"></i>Mocapay – Software/Data Engineer</h3>
-                        <span class="text-xs sm:text-sm text-gray-300">Aug 2021 – Jun 2023 • Delhi, IN</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-database mr-2 text-green-400" aria-hidden="true"></i>Mocapay — Software/Data Engineer</h3>
+                        <span class="text-xs sm:text-sm text-gray-300">2021 – 2023 • Delhi, IN</span>
                     </div>
                     <ul class="mt-3 sm:mt-4 list-disc list-inside text-gray-200 space-y-1.5 sm:space-y-2 text-sm sm:text-base">
-                        <li>Developed <strong>5+</strong> Scala microservices; implemented <strong>Kafka</strong> pipelines and ETL for analytics.</li>
-                        <li>Containerized and automated deployments with <strong>Docker</strong>, improving release reliability.</li>
-                        <li>Partnered with stakeholders to deliver <strong>near‑real‑time</strong> dashboards and alerts.</li>
+                        <li>Developed Scala services; implemented Kafka-based event flows and data processing for downstream features.</li>
+                        <li>Containerized and automated deployments with Docker to improve release reliability.</li>
+                        <li>Added metrics/logging and lightweight runbooks to speed up issue triage and reduce regressions.</li>
                     </ul>
                 </div>
                 <!-- TCS -->
                 <div class="glass-effect p-5 sm:p-6 rounded-2xl scroll-reveal card hover:shadow-2xl transition">
                     <div class="flex items-center justify-between flex-wrap gap-2">
-                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-code mr-2 text-yellow-400"></i>TCS – Software Engineer</h3>
-                        <span class="text-xs sm:text-sm text-gray-300">Jan 2020 – Jul 2021 • Indore, IN</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-200"><i class="fas fa-code mr-2 text-yellow-400" aria-hidden="true"></i>TCS — Software Engineer</h3>
+                        <span class="text-xs sm:text-sm text-gray-300">2020 – 2021 • Indore, IN</span>
                     </div>
                     <ul class="mt-3 sm:mt-4 list-disc list-inside text-gray-200 space-y-1.5 sm:space-y-2 text-sm sm:text-base">
-                        <li>Built data-driven modules with <strong>Java/SQL/AngularJS</strong> for finance reporting.</li>
-                        <li>Contributed <strong>unit/integration tests</strong> and CI checks to improve code quality.</li>
-                        <li>Supported stakeholders across <strong>3</strong> functional teams with ad-hoc analysis and fixes.</li>
+                        <li>Built Java/SQL modules and added unit/integration tests and CI checks to improve code quality.</li>
+                        <li>Translated finance requirements into scoped deliverables; partnered with QA to close defects.</li>
+                        <li>Documented components and supported handoffs across three functional teams.</li>
                     </ul>
                 </div>
             </div>
@@ -139,15 +140,16 @@
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2 text-green-300">Top Skills</h2>
             <div class="divider"></div>
             <div class="glass-effect p-6 sm:p-8 rounded-2xl mt-8 card">
+                <p class="text-gray-300 mb-4 text-sm sm:text-base text-center">Focused, AI-forward stack (kept lean on purpose).</p>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 text-center">
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fab fa-python mr-2"></i>Python</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-database mr-2"></i>SQL</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-terminal mr-2"></i>Prompt Engineering</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-search mr-2"></i>RAG</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-check-circle mr-2"></i>Model Evaluation</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-bolt mr-2"></i>Spark</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fab fa-google mr-2"></i>GCP</div>
-                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fab fa-docker mr-2"></i>Docker</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fab fa-python mr-2" aria-hidden="true"></i>Python</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-code mr-2" aria-hidden="true"></i>FastAPI</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-brain mr-2" aria-hidden="true"></i>OpenAI / Claude (tool calling)</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-search mr-2" aria-hidden="true"></i>RAG (LlamaIndex)</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-database mr-2" aria-hidden="true"></i>Postgres + pgvector</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-diagram-project mr-2" aria-hidden="true"></i>LangGraph / LangChain</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-network-wired mr-2" aria-hidden="true"></i>n8n orchestration</div>
+                    <div class="p-3 sm:p-4 rounded-xl skill-card"><i class="fas fa-clipboard-check mr-2" aria-hidden="true"></i>Eval & Guardrails (TruLens / DeepEval)</div>
                 </div>
             </div>
         </div>
@@ -159,11 +161,15 @@
             <h2 class="text-3xl sm:text-4xl font-bold mb-2 text-pink-300">Get In Touch</h2>
             <div class="divider"></div>
             <div class="glass-effect p-6 sm:p-8 rounded-2xl mt-8 card">
-                <p class="text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg">Let’s connect to build impactful, reliable AI systems together.</p>
+                <p class="text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg">Let’s connect to build reliable, auditable AI systems.</p>
                 <a href="mailto:nayakaishwarya12@yahoo.in" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto">Contact Me</a>
                 <p class="mt-6 text-sm text-gray-400 flex items-center justify-center gap-6">
-                    <a href="https://www.linkedin.com/in/aishwarya-nayak-" target="_blank" class="inline-block"><i class="fab fa-linkedin fa-2x hover:text-blue-300"></i></a>
-                    <a href="https://github.com/A1SHWARYANAYAK" target="_blank" class="inline-block"><i class="fab fa-github fa-2x hover:text-gray-400"></i></a>
+                    <a href="https://www.linkedin.com/in/aishwarya-nayak-" target="_blank" rel="noopener" class="inline-block" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin fa-2x hover:text-blue-300" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/A1SHWARYANAYAK" target="_blank" rel="noopener" class="inline-block" aria-label="GitHub">
+                        <i class="fab fa-github fa-2x hover:text-gray-400" aria-hidden="true"></i>
+                    </a>
                 </p>
             </div>
         </div>
