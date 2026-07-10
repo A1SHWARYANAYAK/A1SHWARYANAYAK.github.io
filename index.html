@@ -161,6 +161,31 @@
     .nav-link:hover {
       color: #a855f7;
     }
+    /* MOBILE MENU */
+
+    #mobile-menu{
+    
+      background: rgba(255,255,255,.92);
+    
+      backdrop-filter: blur(14px);
+    
+      border-top:1px solid rgba(226,232,240,.6);
+    
+    }
+    
+    #mobile-menu a{
+    
+      padding:.75rem 0;
+    
+      border-bottom:1px solid rgba(226,232,240,.4);
+    
+    }
+    
+    #mobile-menu a:last-child{
+    
+      border-bottom:none;
+    
+    }
 
     /* PROFILE IMAGE */
 
@@ -225,33 +250,38 @@
     /* EXPERIENCE CARDS */
 
     .minimal-card {
-
-      background:
-        rgba(255,255,255,0.82);
-
+    
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    
+      background: rgba(255,255,255,0.82);
+    
       backdrop-filter: blur(10px);
-
-      border:
-        1px solid rgba(255,255,255,0.5);
-
+    
+      border: 1px solid rgba(255,255,255,0.5);
+    
       border-radius: 26px;
-
+    
       padding: 2rem;
-
-      box-shadow:
-        0 10px 40px rgba(99,102,241,0.08);
-
+    
+      box-shadow: 0 10px 40px rgba(99,102,241,0.08);
+    
       transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
     }
-
+    
     .minimal-card:hover {
-
+    
       transform: translateY(-4px);
-
-      box-shadow:
-        0 18px 50px rgba(168,85,247,0.12);
+    
+      box-shadow: 0 18px 50px rgba(168,85,247,0.12);
+    }
+    
+    .minimal-card:hover h3{
+      color:#7c3aed;
+      transition: color .25s ease;
     }
 
     /* ABOUT FEATURE CARDS */
@@ -406,42 +436,58 @@
 
   <!-- NAVBAR -->
 
+<!-- NAVBAR -->
+
 <nav class="fixed top-0 w-full z-50 navbar">
 
   <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
 
-    <!-- Logo / Name -->
+    <!-- Logo -->
 
-    <a href="#hero"
-       class="text-lg sm:text-xl font-semibold tracking-wide text-slate-900 hover:text-violet-600 transition-colors duration-300">
-
+    <a
+      href="#hero"
+      class="text-lg sm:text-xl font-semibold tracking-wide text-slate-900 hover:text-violet-600 transition-colors duration-300"
+    >
       Aishwarya Nayak
-
     </a>
 
-    <!-- Navigation -->
+    <!-- Desktop Menu -->
 
     <div class="hidden md:flex items-center space-x-8 text-sm">
 
-      <a href="#about" class="nav-link">
-        About
-      </a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Technical Expertise</a>
+      <a href="#contact" class="nav-link">Contact</a>
 
-      <a href="#experience" class="nav-link">
-        Experience
-      </a>
+    </div>
 
-      <a href="#projects" class="nav-link">
-        Projects
-      </a>
+    <!-- Mobile Menu Button -->
 
-      <a href="#skills" class="nav-link">
-        Skills
-      </a>
+    <button
+      id="menu-btn"
+      class="md:hidden text-slate-700 text-2xl"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
 
-      <a href="#contact" class="nav-link">
-        Contact
-      </a>
+  </div>
+
+  <!-- Mobile Dropdown -->
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden px-5 pb-5"
+  >
+
+    <div class="flex flex-col gap-4 text-sm">
+
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Technical Expertise</a>
+      <a href="#contact" class="nav-link">Contact</a>
 
     </div>
 
@@ -645,231 +691,228 @@
 
   </section>
 
-  <!-- EXPERIENCE -->
+<!-- EXPERIENCE -->
 
-  <section id="experience" class="py-28 px-5 bg-experience">
+<section id="experience" class="py-28 px-5 bg-experience">
 
-    <div class="max-w-5xl mx-auto">
+  <div class="max-w-5xl mx-auto">
 
-      <h2 class="text-4xl font-bold text-center text-slate-900">
-        Experience
-      </h2>
+    <h2 class="text-4xl font-bold text-center text-slate-900">
+      Experience
+    </h2>
 
-      <div class="divider"></div>
+    <div class="divider"></div>
 
-      <div class="mt-16 space-y-10">
+    <div class="mt-16 space-y-8">
 
-        <!-- HANDSHAKE -->
+      <!-- HANDSHAKE -->
 
-        <div class="minimal-card scroll-reveal">
+      <div class="minimal-card scroll-reveal">
 
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+        <!-- Header -->
 
-            <div>
+        <div class="mb-6">
 
-              <h3 class="text-2xl font-semibold text-slate-900">
-                Handshake AI — AI Evaluation Engineer
-              </h3>
-              <div class="flex flex-wrap gap-2 mt-3 mb-5">
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Frontier AI</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Coding Agents</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">SWE Benchmarks</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Docker</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">AI Evaluation</span>
-              
-              </div>
+          <h3 class="text-3xl font-bold text-slate-900">
+            Handshake AI
+          </h3>
 
-            </div>
+          <p class="text-xl font-semibold text-violet-600 mt-1">
+            AI Evaluation Engineer
+          </p>
 
-            <span class="text-sm text-slate-500">
-              2025 – Present • Remote (United States & India)
-            </span>
-
-          </div>
-
-                <ul class="list-disc pl-5 space-y-4 text-slate-700 leading-relaxed">
-                
-                <li>
-                Built and evaluated frontier AI systems across LLM reasoning, autonomous coding agents, multimodal models, and software engineering benchmarks.
-                </li>
-                
-                <li>
-                Designed deterministic evaluation pipelines using Docker-based environments, reproducible test harnesses, and structured benchmark methodologies for large-scale model assessment.
-                </li>
-                
-                <li>
-                Created SWE-bench-style software engineering tasks, benchmark datasets, and adversarial evaluation scenarios to measure code generation quality, reasoning ability, and execution correctness.
-                </li>
-                
-                <li>
-                Analyzed AI system failures including hallucinations, reasoning errors, agent planning failures, runtime exceptions, and instruction-following regressions to improve model reliability.
-                </li>
-                
-                <li>
-                Authored high-difficulty reasoning tasks, multimodal benchmarks, evaluation rubrics, and reference solutions supporting large-scale AI evaluation and quality assurance.
-                
-                </li>
-                
-                </ul>
+          <p class="text-sm text-slate-500 mt-2">
+            2025 – Present • Remote (United States & India)
+          </p>
 
         </div>
 
-        <!-- REALITY AI LAB -->
+        <!-- Badges -->
 
-        <div class="minimal-card scroll-reveal">
-        
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
-        
-            <div>
-        
-              <h3 class="text-2xl font-semibold text-slate-900">
-                Reality AI Lab — Generative AI Engineer (Volunteer)
-              </h3>
-              <div class="flex flex-wrap gap-2 mt-3 mb-5">
+        <div class="flex flex-wrap gap-2 mb-6">
 
-                <span class="skill-pill px-4 py-2 rounded-full">RAG</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">FastAPI</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Vertex AI</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">LangChain</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Gemini</span>
-              
-              </div>
-            </div>
-        
-            <span class="text-sm text-slate-500">
-              2025 • Remote (United States)
-            </span>
-        
-          </div>
-        
-              <ul class="list-disc pl-5 space-y-4 text-slate-700 leading-relaxed">
-              
-              <li>
-              Built production-ready AI applications using Google Vertex AI, Gemini models, and LangChain to automate content generation and intelligent knowledge retrieval workflows.
-              </li>
-              
-              <li>
-              Developed FastAPI-based backend services and modular AI pipelines supporting Retrieval-Augmented Generation (RAG), prompt orchestration, and long-context LLM applications.
-              </li>
-              
-              <li>
-              Designed scalable document ingestion, preprocessing, and evaluation workflows while collaborating with frontend and backend engineers to deliver reliable AI-powered user experiences.
-              </li>
-              
-              </ul>
-        
-        </div> 
-
-        <!-- MOCAPAY -->
-
-        <div class="minimal-card scroll-reveal">
-
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
-
-            <div>
-
-              <h3 class="text-2xl font-semibold text-slate-900">
-                Mocapay — Software Engineer (Backend)
-              </h3>
-              <div class="flex flex-wrap gap-2 mt-3 mb-5">
-
-                <span class="skill-pill px-4 py-2 rounded-full">Microservices</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Kafka</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">REST APIs</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Java</span>
-              
-              </div>
-
-            </div>
-
-            <span class="text-sm text-slate-500">
-              2021 – 2023 • Delhi, India
-            </span>
-
-          </div>
-
-            <ul class="list-disc pl-5 space-y-4 text-slate-700 leading-relaxed">
-            
-              <li>
-                Built and maintained reactive Scala microservices supporting fintech products generating over $10M in annual revenue.
-              </li>
-            
-              <li>
-                Designed REST APIs and Kafka-driven event workflows powering large-scale transaction processing and asynchronous business operations.
-              </li>
-            
-              <li>
-                Reduced deployment cycles by 30% through CI/CD automation using Jenkins and Docker while improving platform reliability.
-              </li>
-            
-            </ul>
+          <span class="skill-pill px-4 py-2 rounded-full">Frontier AI</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Coding Agents</span>
+          <span class="skill-pill px-4 py-2 rounded-full">SWE Benchmarks</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Docker</span>
+          <span class="skill-pill px-4 py-2 rounded-full">AI Evaluation</span>
 
         </div>
 
-        <!-- TCS -->
+        <!-- Content -->
 
-        <div class="minimal-card scroll-reveal">
+        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
 
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+          <li>
+            Built and evaluated frontier AI systems across LLM reasoning, autonomous coding agents, multimodal models, and software engineering benchmarks.
+          </li>
 
-            <div>
+          <li>
+            Designed deterministic evaluation pipelines using Docker-based environments, reproducible test harnesses, and structured benchmark methodologies for large-scale model assessment.
+          </li>
 
-              <h3 class="text-2xl font-semibold text-slate-900">
-                TCS — Software Engineer
-              </h3>
-              <div class="flex flex-wrap gap-2 mt-3 mb-5">
+          <li>
+            Created SWE-bench-style software engineering tasks, benchmark datasets, and adversarial evaluation scenarios to measure code generation quality, reasoning ability, and execution correctness.
+          </li>
 
-                <span class="skill-pill px-4 py-2 rounded-full">Backend</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Distributed Systems</span>
-              
-                <span class="skill-pill px-4 py-2 rounded-full">Enterprise Software</span>
-              
-              </div>
+          <li>
+            Analyzed AI system failures including hallucinations, reasoning errors, agent planning failures, runtime exceptions, and instruction-following regressions to improve model reliability.
+          </li>
 
-            </div>
+          <li>
+            Authored high-difficulty reasoning tasks, multimodal benchmarks, evaluation rubrics, and reference solutions supporting large-scale AI evaluation and quality assurance.
+          </li>
 
-            <span class="text-sm text-slate-500">
-              2020 – 2021 • Indore, India
-            </span>
+        </ul>
 
-          </div>
+      </div>
 
-            <ul class="list-disc pl-5 space-y-4 text-slate-700 leading-relaxed">
-            
-              <li>
-                Developed enterprise finance-platform services supporting the management of 1,000+ client contracts and core business workflows.
-              </li>
-            
-              <li>
-                Optimized cloud infrastructure across AWS and GCP environments, reducing operational costs by 15% while maintaining performance and availability.
-              </li>
-            
-              <li>
-                Improved database performance and deployment efficiency through SQL optimization, automated testing, and CI/CD implementation.
-              </li>
-            
-            </ul>
+      <!-- REALITY AI LAB -->
+
+      <div class="minimal-card scroll-reveal">
+
+        <div class="mb-6">
+
+          <h3 class="text-3xl font-bold text-slate-900">
+            Reality AI Lab
+          </h3>
+
+          <p class="text-xl font-semibold text-violet-600 mt-1">
+            Generative AI Engineer (Volunteer)
+          </p>
+
+          <p class="text-sm text-slate-500 mt-2">
+            2025 • Remote (United States)
+          </p>
 
         </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+
+          <span class="skill-pill px-4 py-2 rounded-full">RAG</span>
+          <span class="skill-pill px-4 py-2 rounded-full">FastAPI</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Vertex AI</span>
+          <span class="skill-pill px-4 py-2 rounded-full">LangChain</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Gemini</span>
+
+        </div>
+
+        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
+
+          <li>
+            Built production-ready AI applications using Google Vertex AI, Gemini models, and LangChain to automate content generation and intelligent knowledge retrieval workflows.
+          </li>
+
+          <li>
+            Developed FastAPI-based backend services and modular AI pipelines supporting Retrieval-Augmented Generation (RAG), prompt orchestration, and long-context LLM applications.
+          </li>
+
+          <li>
+            Designed scalable document ingestion, preprocessing, and evaluation workflows while collaborating with frontend and backend engineers to deliver reliable AI-powered user experiences.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- MOCAPAY -->
+
+      <div class="minimal-card scroll-reveal">
+
+        <div class="mb-6">
+
+          <h3 class="text-3xl font-bold text-slate-900">
+            Mocapay
+          </h3>
+
+          <p class="text-xl font-semibold text-violet-600 mt-1">
+            Software Engineer (Backend)
+          </p>
+
+          <p class="text-sm text-slate-500 mt-2">
+            2021 – 2023 • Delhi, India
+          </p>
+
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+
+          <span class="skill-pill px-4 py-2 rounded-full">Microservices</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Kafka</span>
+          <span class="skill-pill px-4 py-2 rounded-full">REST APIs</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Java</span>
+
+        </div>
+
+        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
+
+          <li>
+            Built and maintained reactive Scala microservices supporting fintech products generating over $10M in annual revenue.
+          </li>
+
+          <li>
+            Designed REST APIs and Kafka-driven event workflows powering large-scale transaction processing and asynchronous business operations.
+          </li>
+
+          <li>
+            Reduced deployment cycles by 30% through CI/CD automation using Jenkins and Docker while improving platform reliability.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- TCS -->
+
+      <div class="minimal-card scroll-reveal">
+
+        <div class="mb-6">
+
+          <h3 class="text-3xl font-bold text-slate-900">
+            Tata Consultancy Services
+          </h3>
+
+          <p class="text-xl font-semibold text-violet-600 mt-1">
+            Software Engineer
+          </p>
+
+          <p class="text-sm text-slate-500 mt-2">
+            2020 – 2021 • Indore, India
+          </p>
+
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+
+          <span class="skill-pill px-4 py-2 rounded-full">Backend</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Distributed Systems</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Enterprise Software</span>
+
+        </div>
+
+        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
+
+          <li>
+            Developed enterprise finance-platform services supporting the management of 1,000+ client contracts and core business workflows.
+          </li>
+
+          <li>
+            Optimized cloud infrastructure across AWS and GCP environments, reducing operational costs by 15% while maintaining performance and availability.
+          </li>
+
+          <li>
+            Improved database performance and deployment efficiency through SQL optimization, automated testing, and CI/CD implementation.
+          </li>
+
+        </ul>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
  <!-- PROJECTS -->
 
@@ -898,13 +941,13 @@
           CodeSage
         </h3>
 
-        <p class="text-slate-700 leading-relaxed mb-6">
+        <p class="text-slate-700 leading-relaxed mb-6 flex-grow">
 
           AI-powered repository intelligence platform built using LangGraph multi-agent workflows to analyze software repositories, understand project architecture, and generate contextual insights for developers.
 
         </p>
 
-        <div class="flex flex-wrap gap-2 mb-6">
+        <div class="flex flex-wrap gap-2 mt-auto mb-6">
 
           <span class="skill-pill px-4 py-2 rounded-full">
             LangGraph
@@ -929,7 +972,7 @@
           target="_blank"
           class="text-violet-600 font-medium hover:text-violet-800"
         >
-          View Project →
+          View Code →
         </a>
 
       </div>
@@ -942,13 +985,13 @@
           Enterprise Knowledge Copilot
         </h3>
 
-        <p class="text-slate-700 leading-relaxed mb-6">
+        <p class="text-slate-700 leading-relaxed mb-6 flex-grow">
 
           Production-ready Retrieval-Augmented Generation (RAG) platform enabling intelligent conversations with enterprise documents through semantic search, vector retrieval, and local LLM-powered question answering.
 
         </p>
 
-        <div class="flex flex-wrap gap-2 mb-6">
+        <div class="flex flex-wrap gap-2 mt-auto mb-6">
 
           <span class="skill-pill px-4 py-2 rounded-full">
             RAG
@@ -973,7 +1016,7 @@
           target="_blank"
           class="text-violet-600 font-medium hover:text-violet-800"
         >
-          View Project →
+          View Code →
         </a>
 
       </div>
@@ -986,13 +1029,13 @@
           Transcript Intelligence
         </h3>
 
-        <p class="text-slate-700 leading-relaxed mb-6">
+        <p class="text-slate-700 leading-relaxed mb-6 flex-grow">
 
           AI-powered transcript intelligence platform that transforms lengthy conversations into structured summaries, action items, semantic search, and contextual business insights using Large Language Models.
 
         </p>
 
-        <div class="flex flex-wrap gap-2 mb-6">
+        <div class="flex flex-wrap gap-2 mt-auto mb-6">
 
           <span class="skill-pill px-4 py-2 rounded-full">
             NLP
@@ -1017,7 +1060,7 @@
           target="_blank"
           class="text-violet-600 font-medium hover:text-violet-800"
         >
-          View Project →
+          View Code →
         </a>
 
       </div>
@@ -1035,95 +1078,95 @@
   <div class="max-w-6xl mx-auto scroll-reveal">
 
     <h2 class="text-4xl font-bold text-slate-900 text-center">
-      Skills
+      Technical Expertise
     </h2>
 
     <div class="divider"></div>
 
-    <div class="grid md:grid-cols-2 gap-12 mt-14">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-12">
 
       <!-- AI & LLM Systems -->
 
       <div>
 
-        <h3 class="text-xl font-semibold text-slate-900 mb-5">
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
           AI & LLM Systems
         </h3>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
 
-          <span class="skill-pill px-5 py-3 rounded-full">Large Language Models (LLMs)</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Agentic AI</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Multi-Agent Systems</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Retrieval-Augmented Generation (RAG)</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Prompt Engineering</span>
-          <span class="skill-pill px-5 py-3 rounded-full">AI Evaluation</span>
-          <span class="skill-pill px-5 py-3 rounded-full">LangChain</span>
-          <span class="skill-pill px-5 py-3 rounded-full">LangGraph</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Vertex AI</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Gemini API</span>
-
-        </div>
-
-      </div>
-
-      <!-- Programming -->
-
-      <div>
-
-        <h3 class="text-xl font-semibold text-slate-900 mb-5">
-          Programming Languages
-        </h3>
-
-        <div class="flex flex-wrap gap-3">
-
-          <span class="skill-pill px-5 py-3 rounded-full">Python</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Java</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Scala</span>
-          <span class="skill-pill px-5 py-3 rounded-full">JavaScript</span>
-          <span class="skill-pill px-5 py-3 rounded-full">SQL</span>
+          <span class="skill-pill px-4 py-2 rounded-full">LLMs</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Agentic AI</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Multi-Agent Systems</span>
+          <span class="skill-pill px-4 py-2 rounded-full">RAG</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Prompt Engineering</span>
+          <span class="skill-pill px-4 py-2 rounded-full">AI Evaluation</span>
+          <span class="skill-pill px-4 py-2 rounded-full">LangChain</span>
+          <span class="skill-pill px-4 py-2 rounded-full">LangGraph</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Vertex AI</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Gemini API</span>
 
         </div>
 
       </div>
 
-      <!-- Backend -->
+      <!-- Backend Engineering -->
 
       <div>
 
-        <h3 class="text-xl font-semibold text-slate-900 mb-5">
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
           Backend Engineering
         </h3>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
 
-          <span class="skill-pill px-5 py-3 rounded-full">FastAPI</span>
-          <span class="skill-pill px-5 py-3 rounded-full">REST APIs</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Microservices</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Apache Kafka</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Distributed Systems</span>
+          <span class="skill-pill px-4 py-2 rounded-full">FastAPI</span>
+          <span class="skill-pill px-4 py-2 rounded-full">REST APIs</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Microservices</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Apache Kafka</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Distributed Systems</span>
 
         </div>
 
       </div>
 
-      <!-- Cloud -->
+      <!-- Cloud & DevOps -->
 
       <div>
 
-        <h3 class="text-xl font-semibold text-slate-900 mb-5">
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
           Cloud & DevOps
         </h3>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
 
-          <span class="skill-pill px-5 py-3 rounded-full">Docker</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Kubernetes</span>
-          <span class="skill-pill px-5 py-3 rounded-full">AWS</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Google Cloud Platform (GCP)</span>
-          <span class="skill-pill px-5 py-3 rounded-full">GitHub Actions</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Jenkins</span>
-          <span class="skill-pill px-5 py-3 rounded-full">CI/CD</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Docker</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Kubernetes</span>
+          <span class="skill-pill px-4 py-2 rounded-full">AWS</span>
+          <span class="skill-pill px-4 py-2 rounded-full">GCP</span>
+          <span class="skill-pill px-4 py-2 rounded-full">GitHub Actions</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Jenkins</span>
+          <span class="skill-pill px-4 py-2 rounded-full">CI/CD</span>
+
+        </div>
+
+      </div>
+
+      <!-- Programming Languages -->
+
+      <div>
+
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
+          Programming Languages
+        </h3>
+
+        <div class="flex flex-wrap gap-2">
+
+          <span class="skill-pill px-4 py-2 rounded-full">Python</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Java</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Scala</span>
+          <span class="skill-pill px-4 py-2 rounded-full">JavaScript</span>
+          <span class="skill-pill px-4 py-2 rounded-full">SQL</span>
 
         </div>
 
@@ -1131,17 +1174,17 @@
 
       <!-- Databases -->
 
-      <div class="md:col-span-2">
+      <div>
 
-        <h3 class="text-xl font-semibold text-slate-900 mb-5">
+        <h3 class="text-lg font-semibold text-slate-900 mb-3">
           Databases & Search
         </h3>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
 
-          <span class="skill-pill px-5 py-3 rounded-full">MySQL</span>
-          <span class="skill-pill px-5 py-3 rounded-full">ChromaDB</span>
-          <span class="skill-pill px-5 py-3 rounded-full">Apache Solr</span>
+          <span class="skill-pill px-4 py-2 rounded-full">MySQL</span>
+          <span class="skill-pill px-4 py-2 rounded-full">ChromaDB</span>
+          <span class="skill-pill px-4 py-2 rounded-full">Apache Solr</span>
 
         </div>
 
@@ -1152,7 +1195,6 @@
   </div>
 
 </section>
-
   <!-- CONTACT -->
 
   <section id="contact" class="py-28 px-5 bg-contact">
@@ -1229,6 +1271,34 @@
   <!-- SCROLL REVEAL -->
 
   <script>
+    /* MOBILE MENU */
+      
+      const menuBtn = document.getElementById("menu-btn");
+      
+      const mobileMenu = document.getElementById("mobile-menu");
+      
+      menuBtn.addEventListener("click", () => {
+      
+          mobileMenu.classList.toggle("hidden");
+      
+          menuBtn.innerHTML =
+              mobileMenu.classList.contains("hidden")
+                  ? '<i class="fas fa-bars"></i>'
+                  : '<i class="fas fa-times"></i>';
+      
+      });
+      
+      document.querySelectorAll("#mobile-menu a").forEach(link => {
+      
+          link.addEventListener("click", () => {
+      
+              mobileMenu.classList.add("hidden");
+      
+              menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      
+          });
+      
+      });
 
     const observer = new IntersectionObserver((entries) => {
 
