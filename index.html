@@ -428,6 +428,14 @@
       }
     }
 
+ /* Company Logos */   
+    .company-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
   </style>
 
 </head>
@@ -711,20 +719,30 @@
 
         <!-- Header -->
 
-        <div class="mb-6">
+        <div class="flex justify-between items-start gap-8 mb-6">
 
-          <h3 class="text-3xl font-bold text-slate-900">
-            Handshake AI
-          </h3>
-
-          <p class="text-xl font-semibold text-violet-600 mt-1">
-            AI Evaluation Engineer
-          </p>
-
-          <p class="text-sm text-slate-500 mt-2">
-            2025 – Present • Remote (United States & India)
-          </p>
-
+          <div>
+        
+            <h3 class="text-3xl font-bold text-slate-900">
+              Handshake AI
+            </h3>
+        
+            <p class="text-xl font-semibold text-violet-600 mt-1">
+              AI Evaluation Engineer
+            </p>
+        
+            <p class="text-sm text-slate-500 mt-2">
+              2025 – Present • Remote (United States & India)
+            </p>
+        
+          </div>
+        
+          <img
+            src="handshake.jpeg"
+            alt="Handshake AI"
+            class="company-logo"
+          >
+        
         </div>
 
         <!-- Badges -->
