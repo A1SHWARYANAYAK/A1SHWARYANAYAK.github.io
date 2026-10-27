@@ -1,1296 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aishwarya Nayak | AI Evaluation & Benchmark Engineer</title>
+  <meta name="description" content="Aishwarya Nayak is an AI Engineer specialising in AI evaluation, benchmark engineering and reliable AI systems. 5+ years in software and AI, MS in Data Science from the University at Buffalo." />
+  <meta property="og:title" content="Aishwarya Nayak | AI Evaluation & Benchmark Engineer" />
+  <meta property="og:description" content="I build software-engineering benchmarks that show where AI coding agents succeed and where they fail." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://a1shwaryanayak.github.io/" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-    <title>
-    Aishwarya Nayak | AI Engineer | Agentic AI | LLM Systems
-    </title>
-    
-    <meta
-    name="description"
-    content="Portfolio of Aishwarya Nayak, AI Engineer specializing in Agentic AI, LLM-powered applications, Retrieval-Augmented Generation (RAG), backend engineering, and production AI systems."
-    />
-    
-    <meta
-    name="keywords"
-    content="AI Engineer, Agentic AI, LLM, RAG, LangGraph, LangChain, FastAPI, Backend Engineer, Generative AI"
-    />
-
-  <!-- TAILWIND -->
-
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-    rel="stylesheet"
-  />
-
-  <!-- ICONS -->
-
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    rel="stylesheet"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --ink: #15173a;
+      --ink-soft: #2b2e57;
+      --paper: #f7f8fc;
+      --surface: #ffffff;
+      --lilac: #e9e6fb;
+      --lilac-deep: #cfc8f5;
+      --berry: #b4235a;
+      --berry-dark: #8f1a47;
+      --muted: #575b78;
+      --line: #dcdcec;
+      --pass: #2bb673;
+      --fail: #f0616b;
+      --term-text: #e6e7f5;
+      --term-dim: #8f93b8;
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
+      --display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+      --body: "IBM Plex Sans", "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+
+      --wrap: 1120px;
+      --gutter: clamp(20px, 5vw, 48px);
     }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
     body {
-
-      overflow-x: hidden;
-
-      background: #f8fafc;
-
-      color: #0f172a;
-
-      font-family:
-        Inter,
-        system-ui,
-        sans-serif;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    section {
-      overflow-x: hidden;
+    img { max-width: 100%; display: block; }
+    a { color: var(--berry); text-underline-offset: 3px; }
+    a:hover { color: var(--berry-dark); }
+    :focus-visible { outline: 3px solid var(--berry); outline-offset: 3px; border-radius: 4px; }
+
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+    h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; }
+    h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.02em; }
+    h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+    p { margin: 0; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(247, 248, 252, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
     }
-
-    /* BACKGROUNDS */
-
-    .animated-bg {
-
-      background:
-        linear-gradient(
-          135deg,
-          #eff6ff 0%,
-          #fdf2f8 45%,
-          #eef2ff 100%
-        );
+    .nav.scrolled { border-bottom-color: var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 24px; }
+    .brand { font-family: var(--display); font-weight: 800; font-size: 1.2rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    .nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 28px; align-items: center; }
+    .nav ul a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; }
+    .nav ul a:hover { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--body); font-weight: 600; font-size: .95rem;
+      padding: 12px 22px; border-radius: 999px; text-decoration: none;
+      border: 2px solid var(--ink); transition: background .15s, color .15s;
     }
+    .btn-solid { background: var(--ink); color: #fff; }
+    .btn-solid:hover { background: var(--berry); border-color: var(--berry); color: #fff; }
+    .btn-line { background: transparent; color: var(--ink); }
+    .btn-line:hover { background: var(--ink); color: #fff; }
+    .nav .btn { padding: 8px 16px; font-size: .9rem; }
+    .nav ul a.btn-solid, .nav ul a.btn-solid:hover { color: #fff; }
+    .menu-toggle { display: none; background: none; border: 0; font: inherit; color: var(--ink); font-weight: 600; cursor: pointer; padding: 8px; }
 
-    .bg-about {
-
-      background:
-        linear-gradient(
-          180deg,
-          #ffffff 0%,
-          #faf5ff 100%
-        );
-    }
-
-    .bg-experience {
-
-      background:
-        linear-gradient(
-          180deg,
-          #f8fafc 0%,
-          #eff6ff 100%
-        );
-    }
-
-    .bg-skills {
-
-      background:
-        linear-gradient(
-          180deg,
-          #ffffff 0%,
-          #fdf4ff 100%
-        );
-    }
-
-    .bg-contact {
-
-      background:
-        linear-gradient(
-          180deg,
-          #fdf4ff 0%,
-          #eff6ff 100%
-        );
-    }
-
-    /* DIVIDER */
-
-    .divider {
-
-      width: 90px;
-
-      height: 4px;
-
-      border-radius: 9999px;
-
-      margin: 1rem auto 0;
-
-      background:
-        linear-gradient(
-          90deg,
-          #60a5fa,
-          #a855f7,
-          #ec4899
-        );
-    }
-
-    /* NAVBAR */
-
-    .navbar {
-
-      background:
-        rgba(255,255,255,0.75);
-
-      backdrop-filter: blur(14px);
-
-      border-bottom:
-        1px solid rgba(226,232,240,0.7);
-    }
-
-    .nav-link {
-
-      color: #475569;
-
-      transition:
-        color 0.2s ease;
-    }
-
-    .nav-link:hover {
-      color: #a855f7;
-    }
-    /* MOBILE MENU */
-
-    #mobile-menu{
-    
-      background: rgba(255,255,255,.92);
-    
-      backdrop-filter: blur(14px);
-    
-      border-top:1px solid rgba(226,232,240,.6);
-    
-    }
-    
-    #mobile-menu a{
-    
-      padding:.75rem 0;
-    
-      border-bottom:1px solid rgba(226,232,240,.4);
-    
-    }
-    
-    #mobile-menu a:last-child{
-    
-      border-bottom:none;
-    
-    }
-
-    /* PROFILE IMAGE */
-
-    .profile-img {
-
-      width: 160px;
-
-      height: 160px;
-
-      object-fit: cover;
-
-      border-radius: 9999px;
-
-      border: 4px solid white;
-
-      box-shadow:
-        0 25px 50px rgba(168,85,247,0.15);
-    }
-
-    @media (min-width: 768px) {
-
-      .profile-img {
-
-        width: 220px;
-
-        height: 220px;
+    @media (max-width: 860px) {
+      .menu-toggle { display: block; }
+      .nav ul {
+        display: none; position: absolute; top: 68px; left: 0; right: 0;
+        flex-direction: column; align-items: flex-start; gap: 0;
+        background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px var(--gutter) 20px;
       }
+      .nav ul.open { display: flex; }
+      .nav ul li { width: 100%; }
+      .nav ul a { display: block; padding: 12px 0; font-size: 1.05rem; }
+      .nav ul .btn { margin-top: 8px; display: inline-flex; padding: 10px 18px; }
     }
 
-    /* BUTTONS */
+    /* HERO */
+    .hero { padding: clamp(40px, 7vw, 88px) 0 clamp(64px, 9vw, 112px); }
+    .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.4vw, 4.3rem);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.0;
+      font-variation-settings: "opsz" 96;
+    }
+    .hero-lede { margin-top: 26px; font-size: 1.15rem; color: var(--muted); max-width: 33em; }
+    .hero-lede strong { color: var(--ink); font-weight: 600; }
+    .hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-meta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 22px; color: var(--muted); font-size: .93rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pass); box-shadow: 0 0 0 4px rgba(43,182,115,.18); }
 
-    .contact-btn {
+    /* TERMINAL: the one bold element */
+    .term {
+      background: var(--ink); color: var(--term-text);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 30px 60px -20px rgba(21,23,58,.45), 0 0 0 1px rgba(21,23,58,.06);
+      font-family: var(--mono); font-size: .86rem; line-height: 1.75;
+      transform: rotate(1.2deg);
+    }
+    .term-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; background: var(--ink-soft); }
+    .term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #4a4e7f; display: block; }
+    .term-bar b { margin-left: 10px; font-weight: 400; color: var(--term-dim); font-size: .8rem; }
+    .term-body { padding: 18px 22px 22px; min-height: 330px; }
+    .term-line { white-space: pre-wrap; opacity: 0; }
+    .term-line.on { opacity: 1; }
+    .t-dim { color: var(--term-dim); }
+    .t-pass { color: var(--pass); }
+    .t-fail { color: var(--fail); }
+    .t-cmd { color: #fff; }
+    .t-note { color: #f5c26b; }
+    .caret { display: inline-block; width: .6em; height: 1.1em; background: var(--term-text); vertical-align: -0.2em; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .term-caption { margin-top: 16px; font-size: .85rem; color: var(--muted); text-align: right; }
 
-      background:
-        linear-gradient(
-          135deg,
-          #3b82f6,
-          #a855f7,
-          #ec4899
-        );
-
-      color: white;
-
-      font-weight: 600;
-
-      box-shadow:
-        0 15px 35px rgba(168,85,247,0.25);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    @media (max-width: 900px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .term { transform: none; }
+      .term-caption { text-align: left; }
     }
 
-    .contact-btn:hover {
+    /* SECTIONS */
+    section { padding: clamp(64px, 9vw, 112px) 0; }
+    .section-head { display: grid; grid-template-columns: 280px 1fr; gap: 40px; margin-bottom: 48px; align-items: end; }
+    .section-head p { color: var(--muted); max-width: 36em; }
+    @media (max-width: 860px) { .section-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 36px; } }
 
-      transform: translateY(-3px);
+    /* ABOUT */
+    .about { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
+    .about-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: top; border: 6px solid var(--lilac); }
+    .about-text p + p { margin-top: 18px; }
+    .about-text { font-size: 1.12rem; max-width: 38em; }
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-photo { width: 140px; height: 140px; }
+      }
 
-      box-shadow:
-        0 22px 45px rgba(168,85,247,0.35);
-    }
+    /* EXPERIENCE TIMELINE */
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .job { display: grid; grid-template-columns: 280px 1fr; gap: 40px; padding: 36px 0; border-top: 1px solid var(--line); }
+    .job:last-child { border-bottom: 1px solid var(--line); }
+    .job-org { display: flex; gap: 14px; align-items: flex-start; }
+    .job-org img { width: 48px; height: 48px; border-radius: 12px; object-fit: contain; background: #fff; border: 1px solid var(--line); flex-shrink: 0; }
+    .job-org h3 { font-size: 1.35rem; }
+    .job-org p { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+    .roles { display: grid; gap: 32px; }
+    .role { position: relative; }
+    .roles.multi .role { padding-left: 26px; }
+    .roles.multi .role::before { content: ""; position: absolute; left: 4px; top: 10px; width: 10px; height: 10px; border-radius: 50%; background: var(--berry); }
+    .roles.multi .role:not(:last-child)::after { content: ""; position: absolute; left: 8px; top: 26px; bottom: -32px; width: 2px; background: var(--lilac-deep); }
+    .roles.multi .role.past::before { background: #fff; border: 2px solid var(--berry); }
+    .role h4 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; margin: 0; }
+    .role .when { color: var(--muted); font-size: .92rem; margin-top: 2px; }
+    .role ul { margin: 14px 0 0; padding-left: 1.1em; color: #34375a; }
+    .role li { margin-top: 8px; max-width: 46em; }
+    .role li::marker { color: var(--berry); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0; list-style: none; }
+    .tags li { margin: 0; font-size: .82rem; font-weight: 500; padding: 4px 12px; border-radius: 999px; background: var(--lilac); color: var(--ink-soft); }
+    @media (max-width: 860px) { .job { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; } }
 
-    /* EXPERIENCE CARDS */
+    /* PROJECTS */
+    .projects { background: var(--ink); color: var(--term-text); }
+    .projects h2 { color: #fff; }
+    .projects .section-head p { color: var(--term-dim); }
+    .proj-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: rgba(255,255,255,.08); border-radius: 20px; overflow: hidden; }
+    .proj { background: var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 14px; }
+    .proj.lead { grid-column: span 2; background: #1d2050; }
+    .proj h3 { color: #fff; font-size: 1.4rem; }
+    .proj p { color: #c5c7e3; max-width: 40em; }
+    .proj .kind { font-size: .85rem; color: var(--term-dim); }
+    .proj .tags li { background: rgba(255,255,255,.08); color: #dfe0f4; }
+    .proj a { color: #ff9ec1; font-weight: 600; margin-top: auto; text-decoration-thickness: 1px; }
+    .proj a:hover { color: #fff; }
+    @media (max-width: 760px) { .proj-grid { grid-template-columns: 1fr; } .proj.lead { grid-column: auto; } .proj { padding: 26px; } }
 
-    .minimal-card {
-    
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    
-      background: rgba(255,255,255,0.82);
-    
-      backdrop-filter: blur(10px);
-    
-      border: 1px solid rgba(255,255,255,0.5);
-    
-      border-radius: 26px;
-    
-      padding: 2rem;
-    
-      box-shadow: 0 10px 40px rgba(99,102,241,0.08);
-    
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-    
-    .minimal-card:hover {
-    
-      transform: translateY(-4px);
-    
-      box-shadow: 0 18px 50px rgba(168,85,247,0.12);
-    }
-    
-    .minimal-card:hover h3{
-      color:#7c3aed;
-      transition: color .25s ease;
-    }
-
-    /* ABOUT FEATURE CARDS */
-
-    .feature-card {
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.9),
-          rgba(248,250,252,0.9)
-        );
-
-      border:
-        1px solid rgba(226,232,240,0.7);
-
-      border-radius: 22px;
-
-      padding: 1.8rem;
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-      box-shadow:
-        0 8px 25px rgba(15,23,42,0.04);
-    }
-
-    .feature-card:hover {
-
-      transform: translateY(-3px);
-
-      box-shadow:
-        0 15px 40px rgba(168,85,247,0.08);
-    }
+    /* CREDENTIALS */
+    .cred-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+    .cred-grid h3 { font-size: 1.1rem; padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 6px; }
+    .cred-list { list-style: none; margin: 0; padding: 0; }
+    .cred-list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .cred-list strong { display: block; font-weight: 600; line-height: 1.4; }
+    .cred-list span { color: var(--muted); font-size: .9rem; }
+    @media (max-width: 900px) { .cred-grid { grid-template-columns: 1fr; gap: 36px; } }
 
     /* SKILLS */
+    .skills { background: var(--surface); border-top: 1px solid var(--line); }
+    .skill-rows { display: grid; gap: 0; }
+    .skill-row { display: grid; grid-template-columns: 280px 1fr; gap: 40px; padding: 20px 0; border-top: 1px solid var(--line); }
+    .skill-row h3 { font-size: 1.05rem; }
+    .skill-row .tags { margin-top: 0; }
+    @media (max-width: 860px) { .skill-row { grid-template-columns: 1fr; gap: 12px; } }
 
-    .skill-pill {
+    /* QUOTES */
+    .quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+    blockquote { margin: 0; padding: 32px; background: var(--lilac); border-radius: 20px; }
+    blockquote p { font-family: var(--display); font-size: 1.3rem; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; }
+    blockquote footer { margin-top: 20px; font-size: .92rem; color: var(--muted); }
+    blockquote footer b { color: var(--ink); font-weight: 600; }
+    @media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
 
-      background:
-        linear-gradient(
-          135deg,
-          #eff6ff,
-          #fdf2f8
-        );
+    /* CONTACT */
+    .contact { padding-bottom: clamp(48px, 7vw, 80px); }
+    .contact-box { background: var(--berry); color: #fff; border-radius: 28px; padding: clamp(36px, 6vw, 72px); display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; }
+    .contact-box h2 { color: #fff; font-size: clamp(2.2rem, 5vw, 3.6rem); }
+    .contact-box p { margin-top: 16px; color: #ffe1ec; max-width: 30em; }
+    .contact-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-self: end; }
+    .icon-links { display: flex; gap: 10px; }
+    .icon-link { width: 48px; height: 48px; border-radius: 50%; display: inline-grid; place-items: center; color: #fff; border: 2px solid rgba(255,255,255,.6); transition: background .15s, color .15s, border-color .15s; }
+    .icon-link:hover { background: #fff; color: var(--berry); border-color: #fff; }
+    .contact-links .btn { border-color: #fff; background: #fff; color: var(--berry); }
+    .contact-links .btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+    @media (max-width: 760px) { .contact-box { grid-template-columns: 1fr; } .contact-links { justify-self: start; } }
 
-      color: #7c3aed;
-
-      border:
-        1px solid #ddd6fe;
-
-      transition:
-        all 0.2s ease;
-    }
-
-    .skill-pill:hover {
-
-      transform: translateY(-2px);
-
-      background:
-        linear-gradient(
-          135deg,
-          #dbeafe,
-          #fae8ff
-        );
-    }
-
-    /* CONTACT CARD */
-
-    .contact-card {
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.85),
-          rgba(248,250,252,0.9)
-        );
-
-      backdrop-filter: blur(12px);
-
-      border:
-        1px solid rgba(255,255,255,0.6);
-
-      border-radius: 30px;
-
-      padding: 4rem 2rem;
-
-      box-shadow:
-        0 18px 50px rgba(168,85,247,0.08);
-    }
-
-    /* SCROLL ANIMATION */
-
-    .scroll-reveal {
-
-      opacity: 0;
-
-      transform: translateY(18px);
-
-      transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
-    }
-
-    .scroll-reveal.visible {
-
-      opacity: 1;
-
-      transform: translateY(0);
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 640px) {
-
-      h1 {
-        line-height: 1.1 !important;
-      }
-
-      section {
-
-        padding-top: 5rem !important;
-
-        padding-bottom: 5rem !important;
-      }
-
-      .minimal-card,
-      .feature-card {
-
-        padding: 1.5rem;
-      }
-
-      .contact-card {
-
-        padding: 3rem 1.5rem;
-      }
-
-      .profile-img {
-
-        width: 150px;
-
-        height: 150px;
-      }
-    }
-
- /* Company Logos */   
-    .company-logo {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
+    footer.site { padding: 28px 0 40px; color: var(--muted); font-size: .88rem; }
   </style>
-
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-
-<!-- NAVBAR -->
-
-<nav class="fixed top-0 w-full z-50 navbar">
-
-  <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-
-    <!-- Logo -->
-
-    <a
-      href="#hero"
-      class="text-lg sm:text-xl font-semibold tracking-wide text-slate-900 hover:text-violet-600 transition-colors duration-300"
-    >
-      Aishwarya Nayak
-    </a>
-
-    <!-- Desktop Menu -->
-
-    <div class="hidden md:flex items-center space-x-8 text-sm">
-
-      <a href="#about" class="nav-link">About</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#skills" class="nav-link">Technical Expertise</a>
-      <a href="#contact" class="nav-link">Contact</a>
-
+  <nav class="nav" id="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="#top">Aishwarya Nayak</a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-solid" href="Aishwarya_Nayak_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Mobile Menu Button -->
+  <main id="top">
 
-    <button
-      id="menu-btn"
-      class="md:hidden text-slate-700 text-2xl"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-  </div>
-
-  <!-- Mobile Dropdown -->
-
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden px-5 pb-5"
-  >
-
-    <div class="flex flex-col gap-4 text-sm">
-
-      <a href="#about" class="nav-link">About</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#skills" class="nav-link">Technical Expertise</a>
-      <a href="#contact" class="nav-link">Contact</a>
-
-    </div>
-
-  </div>
-
-</nav>
-
- <!-- HERO -->
-
-<header id="hero" class="min-h-screen flex items-center justify-center animated-bg px-5">
-
-  <div class="max-w-6xl mx-auto w-full pt-28">
-
-    <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-
-      <!-- IMAGE -->
-
-      <div class="flex-shrink-0">
-
-        <img
-          src="work.jpg"
-          alt="Aishwarya Nayak"
-          class="profile-img"
-        />
-
-      </div>
-
-      <!-- HERO TEXT -->
-
-      <div class="text-center md:text-left max-w-3xl">
-
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5 text-slate-900">
-          Aishwarya Nayak
-        </h1>
-
-        <!-- Hero Description -->
-
-          <p class="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed hero-description mb-8">
-          
-            AI Engineer with 5+ years of experience in building reliable systems with LLMs, Generative AI, and Agentic AI.
-          
+    <!-- HERO -->
+    <header class="hero">
+      <div class="wrap">
+        <div>
+          <h1>I find where AI agents break, so they can be trusted.</h1>
+          <p class="hero-lede">
+            I'm an <strong>AI Evaluation Engineer</strong>. I design software-engineering benchmarks and the tests behind them, to show how well AI coding agents fix real bugs and where they fall short.
           </p>
-
-        <!-- CTA Buttons -->
-
-        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-
-          <a
-            href="#experience"
-            class="contact-btn px-7 py-3 rounded-full font-medium"
-          >
-            Explore My Work
-          </a>
-
-          <a
-            href="Aishwarya_Nayak_Resume.pdf"
-            target="_blank"
-            class="contact-btn px-7 py-3 rounded-full font-medium"
-          >
-            Download Resume
-          </a>
-
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#experience">See my experience</a>
+            <a class="btn btn-line" href="Aishwarya_Nayak_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+          </div>
+          <div class="hero-meta">
+            <span><i class="dot" aria-hidden="true"></i>Open to work</span>
+            <span>5+ years in software and AI</span>
+            <span>MS Data Science, University at Buffalo</span>
+            <span>Bengaluru, India</span>
+          </div>
         </div>
 
+        <div>
+          <div class="term" role="img" aria-label="Illustration of a benchmark run: the reference solution passes all tests, while the agent's attempt fails three of twelve fail-to-pass tests.">
+            <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><b>benchmark run</b></div>
+            <div class="term-body" id="term" aria-hidden="true">
+              <div class="term-line"><span class="t-dim">$</span> <span class="t-cmd">harbor run tasks/cache-lock-contention</span></div>
+              <div class="term-line t-dim">building isolated docker environment ... done</div>
+              <div class="term-line"> </div>
+              <div class="term-line">reference solution</div>
+              <div class="term-line">  fail-to-pass   <span class="t-pass">12/12 passed</span></div>
+              <div class="term-line">  pass-to-pass   <span class="t-pass">48/48 passed</span></div>
+              <div class="term-line"> </div>
+              <div class="term-line">agent attempt</div>
+              <div class="term-line">  fail-to-pass   <span class="t-fail">9/12 passed</span></div>
+              <div class="term-line">  pass-to-pass   <span class="t-pass">48/48 passed</span></div>
+              <div class="term-line"> </div>
+              <div class="term-line t-note">finding: readers still wait on the write lock under load</div>
+              <div class="term-line"><span class="t-dim">$</span> <span class="caret"></span></div>
+            </div>
+          </div>
+          <p class="term-caption">An illustration of the kind of task I design and check.</p>
+        </div>
       </div>
+    </header>
 
-    </div>
-
-  </div>
-
-</header>
-  <!-- ABOUT -->
-
-  <section id="about" class="py-28 px-5 bg-about">
-
-    <div class="max-w-5xl mx-auto scroll-reveal">
-
-      <h2 class="text-4xl font-bold text-center text-slate-900">
-        About Me
-      </h2>
-
-      <div class="divider"></div>
-
-      <div class="mt-12">
-
-        <div class="space-y-8 text-lg leading-8 text-slate-700 text-justify">
-
-          <p>My journey started in backend engineering, where I worked on APIs, microservices, distributed systems, and cloud-based applications. Over time, I moved toward AI engineering, combining that software engineering foundation with my interest in how intelligent systems are built, evaluated, and made reliable. Today, I enjoy working at the intersection of software engineering and AI — turning ideas into systems that are not only capable, but also practical and dependable. Outside of work, I'm constantly exploring new approaches to building, evaluating, and improving AI systems.</p>
-
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <img class="about-photo" src="work.jpg" alt="Illustrated portrait of Aishwarya Nayak" />
         </div>
-
-        <!-- FEATURE GRID -->
-
-        <div class="grid md:grid-cols-3 gap-6 mt-14">
-
-          <!-- CARD 1 -->
-
-          <div class="feature-card">
-
-            <div class="text-3xl mb-4">
-              🤖
-            </div>
-              
-              <h3 class="text-xl font-semibold text-slate-900 mb-3">
-              Agentic AI
-              </h3>
-              
-              <p class="text-slate-600 leading-7">
-              
-              Building autonomous AI systems using multi-agent workflows, tool integration, planning, reasoning, and Retrieval-Augmented Generation (RAG).
-              
-              </p>
-
+        <div>
+          <h2>About me</h2>
+          <div class="about-text" style="margin-top:24px">
+            <p>I started out as a backend engineer on fintech and enterprise platforms, where I learned to care about tests, code reviews and catching problems before users do. Moving into AI evaluation felt like a natural next step: the question is the same, only the system being tested has changed.</p>
+            <p>Being both a builder and a tester shapes how I work. When a benchmark says an agent failed, I want to know whether the agent was wrong or the test was. Next, I want to take more ownership of how AI initiatives are planned and delivered, and grow toward technical leadership.</p>
           </div>
-
-          <!-- CARD 2 -->
-
-          <div class="feature-card">
-
-            <div class="text-3xl mb-4">
-              📊
-            </div>
-                
-                <h3 class="text-xl font-semibold text-slate-900 mb-3">
-                AI Evaluation
-                </h3>
-                
-                <p class="text-slate-600 leading-7">
-                
-                Designing evaluation pipelines, software engineering benchmarks, failure analysis, and reproducible testing for frontier AI systems.
-                
-                </p>
-
-          </div>
-
-          <!-- CARD 3 -->
-
-          <div class="feature-card">
-
-            <div class="text-3xl mb-4">
-              🎯
-            </div>
-
-                <h3 class="text-xl font-semibold text-slate-900 mb-3">
-                Production Engineering
-                </h3>
-                
-                <p class="text-slate-600 leading-7">
-                
-                Developing scalable backend services, APIs, cloud-native applications, and production-ready AI systems with a strong software engineering foundation.
-                
-                </p>
-
-          </div>
-
         </div>
-
       </div>
+    </section>
 
-    </div>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>From backend systems in fintech to evaluating the AI agents that now write code.</p>
+        </div>
 
-  </section>
+        <ol class="timeline">
 
-<!-- EXPERIENCE -->
+          <li class="job">
+            <div class="job-org">
+              <img src="handshake.jpg" alt="" />
+              <div>
+                <h3>Handshake AI</h3>
+                <p>Remote, Sep 2025 – Present</p>
+              </div>
+            </div>
+            <div class="roles multi">
+              <div class="role">
+                <h4>AI Evaluation Engineer, Software Engineering Benchmarking</h4>
+                <p class="when">May 2026 – Present, India</p>
+                <ul>
+                  <li>Build repository-level tasks (bug fixes, feature work, multi-step debugging) that test whether AI agents can solve real programming problems.</li>
+                  <li>Evaluate agents on selected Terminal-Bench 2 and Terminal-Bench 3 tasks that require complex command-line workflows.</li>
+                  <li>Write reference solutions and patches, and design fail-to-pass and pass-to-pass test suites that confirm fixes without regressions.</li>
+                  <li>Set up isolated, reproducible environments with Docker, Linux, Git and the Harbor framework.</li>
+                  <li>Investigate test failures, edge cases and unclear requirements so each benchmark measures what it claims to.</li>
+                </ul>
+                <ul class="tags" aria-label="Tools"><li>Terminal-Bench</li><li>Harbor</li><li>Docker</li><li>pytest</li><li>Git</li></ul>
+              </div>
+              <div class="role past">
+                <h4>AI Evaluation Engineer, Contract</h4>
+                <p class="when">Sep 2025 – Apr 2026, United States</p>
+                <ul>
+                  <li>Evaluated AI-generated code in several languages inside isolated Docker environments, checking correctness, edge cases and task requirements.</li>
+                  <li>Reviewed AI agents' research plans for data leakage, metric manipulation and gaps between what they planned and what they did.</li>
+                  <li>Compared machine-learning approaches on feasibility, complexity, novelty and likely impact.</li>
+                  <li>Applied structured rubrics and documented the reasoning behind each judgement to keep assessments consistent.</li>
+                </ul>
+                <ul class="tags" aria-label="Tools"><li>LLM evaluation</li><li>Docker</li><li>Prompt engineering</li><li>Quality assurance</li></ul>
+              </div>
+            </div>
+          </li>
 
-<section id="experience" class="py-28 px-5 bg-experience">
+          <li class="job">
+            <div class="job-org">
+              <img src="realityai.jpeg" alt="" />
+              <div>
+                <h3>Reality AI Lab</h3>
+                <p>Remote, United States</p>
+              </div>
+            </div>
+            <div class="roles">
+              <div class="role">
+                <h4>Generative AI Engineer, Part-time</h4>
+                <p class="when">Mar 2025 – Sep 2026</p>
+                <ul>
+                  <li>Built presentation-generation features for MarvelAI with Google Vertex AI and Gemini 1.5.</li>
+                  <li>Developed REST APIs and backend workflows in Python and FastAPI connecting the AI services to the app.</li>
+                  <li>Contributed to a React, Next.js and Material UI prototype interface.</li>
+                  <li>Reviewed generated presentations for relevance, consistency, flow and layout, flagging issues that affected quality.</li>
+                </ul>
+                <ul class="tags" aria-label="Tools"><li>Vertex AI</li><li>Gemini</li><li>FastAPI</li><li>Next.js</li></ul>
+              </div>
+            </div>
+          </li>
 
-  <div class="max-w-5xl mx-auto">
+          <li class="job">
+            <div class="job-org">
+              <img src="mocapay.jpeg" alt="" />
+              <div>
+                <h3>Mocapay</h3>
+                <p>Remote, India</p>
+              </div>
+            </div>
+            <div class="roles">
+              <div class="role">
+                <h4>Software Engineer</h4>
+                <p class="when">Aug 2021 – Jun 2023</p>
+                <ul>
+                  <li>Built and maintained backend services and REST APIs in Scala and Java for fintech products and transaction workflows.</li>
+                  <li>Improved search efficiency by 25% with Apache Solr, and cut deployment time by 30% by automating builds with Jenkins and Docker.</li>
+                  <li>Worked with Apache Kafka for event-driven processing across services.</li>
+                  <li>Mentored junior developers on testing and TDD, reviewed pull requests and led code walkthroughs.</li>
+                </ul>
+                <ul class="tags" aria-label="Tools"><li>Scala</li><li>Java</li><li>Kafka</li><li>Solr</li><li>Jenkins</li></ul>
+              </div>
+            </div>
+          </li>
 
-    <h2 class="text-4xl font-bold text-center text-slate-900">
-      Experience
-    </h2>
+          <li class="job">
+            <div class="job-org">
+              <img src="tcs.jpeg" alt="" />
+              <div>
+                <h3>Tata Consultancy Services</h3>
+                <p>Hybrid, India</p>
+              </div>
+            </div>
+            <div class="roles">
+              <div class="role">
+                <h4>Software Engineer</h4>
+                <p class="when">Jan 2020 – Jul 2021</p>
+                <ul>
+                  <li>Developed features in Java, SQL and AngularJS for financial platforms supporting more than 1,000 client contracts.</li>
+                  <li>Analysed and optimised SQL queries to improve application performance.</li>
+                  <li>Used SonarQube and Fortify to catch code-quality issues and security vulnerabilities, and supported Jenkins CI/CD pipelines.</li>
+                </ul>
+                <ul class="tags" aria-label="Tools"><li>Java</li><li>SQL</li><li>AngularJS</li><li>SonarQube</li></ul>
+              </div>
+            </div>
+          </li>
 
-    <div class="divider"></div>
+        </ol>
+      </div>
+    </section>
 
-    <div class="mt-16 space-y-8">
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>The tools I use day to day.</p>
+        </div>
+        <div class="skill-rows">
+          <div class="skill-row"><h3>AI evaluation</h3><ul class="tags"><li>Benchmark engineering</li><li>Terminal-Bench</li><li>Harbor</li><li>Fail-to-pass / pass-to-pass tests</li><li>Rubric-based evaluation</li><li>Model failure analysis</li><li>Model validation</li></ul></div>
+          <div class="skill-row"><h3>AI and LLMs</h3><ul class="tags"><li>Large language models</li><li>AI agents</li><li>Prompt engineering</li><li>Vertex AI</li><li>Gemini</li><li>LangChain</li><li>LangGraph</li></ul></div>
+          <div class="skill-row"><h3>Engineering</h3><ul class="tags"><li>Python</li><li>Java</li><li>Scala</li><li>SQL</li><li>FastAPI</li><li>REST APIs</li><li>Kafka</li><li>pytest</li><li>Test-driven development</li></ul></div>
+          <div class="skill-row"><h3>Infrastructure</h3><ul class="tags"><li>Docker</li><li>Linux</li><li>Git</li><li>Jenkins</li><li>GitHub Actions</li><li>AWS</li><li>GCP</li></ul></div>
+        </div>
+      </div>
+    </section>
 
-      <!-- HANDSHAKE -->
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Testing agents, LLM pipelines and evaluation work, each with code you can run.</p>
+        </div>
 
-      <div class="minimal-card scroll-reveal">
+        <div class="proj-grid">
+          <article class="proj">
+            <p class="kind">LLM pipeline with validation</p>
+            <h3>Transcript Intelligence</h3>
+            <p>Classifies about 100 call transcripts by topic and scores sentiment, urgency and resolution with an LLM. A human-reviewed taxonomy keeps labels consistent, and scores are checked against the dataset's baseline (0.95 correlation).</p>
+            <ul class="tags" aria-label="Tools"><li>LLMs</li><li>Structured outputs</li><li>Python</li><li>pandas</li></ul>
+            <a href="https://github.com/A1SHWARYANAYAK/transcript-intelligence" target="_blank" rel="noopener">View code on GitHub</a>
+          </article>
 
-        <!-- Header -->
+          <article class="proj">
+            <p class="kind">AI testing agent</p>
+            <h3>RFQA Agent</h3>
+            <p>Reads a GitHub issue's acceptance criteria, writes test scenarios, drives a real browser with Playwright and reports a pass or fail verdict for each criterion, backed by logs, screenshots and video.</p>
+            <ul class="tags" aria-label="Tools"><li>Playwright</li><li>LLMs</li><li>GitHub Actions</li></ul>
+            <a href="https://github.com/A1SHWARYANAYAK/rfqa-agent" target="_blank" rel="noopener">View code on GitHub</a>
+          </article>
 
-        <div class="flex justify-between items-start gap-8 mb-6">
+          <article class="proj">
+            <p class="kind">Multi-agent analysis</p>
+            <h3>CodeSage</h3>
+            <p>Four LangGraph agents assess an unfamiliar GitHub repository for architecture, code quality, security and dependency risk, and combine their findings into one report.</p>
+            <ul class="tags" aria-label="Tools"><li>LangGraph</li><li>Gemini</li><li>Pydantic</li></ul>
+            <a href="https://github.com/A1SHWARYANAYAK/codesage" target="_blank" rel="noopener">View code on GitHub</a>
+          </article>
 
+          <article class="proj">
+            <p class="kind">Model evaluation</p>
+            <h3>NLP Expense Classification</h3>
+            <p>Classifies transactions from their descriptions, with a train/test split that keeps repeated descriptions apart to avoid leakage. Reaches 93.5% accuracy and 88.5% macro F1, with error analysis by class.</p>
+            <ul class="tags" aria-label="Tools"><li>scikit-learn</li><li>TF-IDF</li><li>Python</li></ul>
+            <a href="https://github.com/A1SHWARYANAYAK/nlp-expense-classification" target="_blank" rel="noopener">View code on GitHub</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section id="credentials">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Credentials</h2>
+          <p>Certifications, recognition and the communities I give time to.</p>
+        </div>
+
+        <div class="cred-grid">
           <div>
-        
-            <h3 class="text-3xl font-bold text-slate-900">
-              Handshake AI
-            </h3>
-        
-            <p class="text-xl font-semibold text-violet-600 mt-1">
-              AI Evaluation Engineer
-            </p>
-        
-            <p class="text-sm text-slate-500 mt-2">
-              2025 – Present • Remote (United States)
-            </p>
-        
+            <h3>Certifications</h3>
+            <ul class="cred-list">
+              <li><strong>Model Validation Expert, Level II</strong><span>Handshake, Sep 2025</span></li>
+              <li><strong>Model Validation Trainer, Level I</strong><span>Handshake, Sep 2025</span></li>
+              <li><strong>Red Teaming for Generative AI</strong><span>LinkedIn Learning, Oct 2026</span></li>
+              <li><strong>Programming Foundations: Software Testing/QA</strong><span>LinkedIn Learning, Oct 2026</span></li>
+            </ul>
           </div>
-        
-          <img
-            src="handshake.jpg"
-            alt="Handshake AI"
-            class="company-logo"
-          >
-        
-        </div>
-
-        <!-- Badges -->
-
-        <div class="flex flex-wrap gap-2 mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">Frontier AI</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Coding Agents</span>
-          <span class="skill-pill px-4 py-2 rounded-full">SWE Benchmarks</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Docker</span>
-          <span class="skill-pill px-4 py-2 rounded-full">AI Evaluation</span>
-
-        </div>
-
-        <!-- Content -->
-
-        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
-
-          <li>
-            Built and evaluated frontier AI systems across LLM reasoning, autonomous coding agents, multimodal models, and software engineering benchmarks.
-          </li>
-
-          <li>
-            Designed deterministic evaluation pipelines using Docker-based environments, reproducible test harnesses, and structured benchmark methodologies for large-scale model assessment.
-          </li>
-
-          <li>
-            Created SWE-bench-style software engineering tasks, benchmark datasets, and adversarial evaluation scenarios to measure code generation quality, reasoning ability, and execution correctness.
-          </li>
-
-          <li>
-            Analyzed AI system failures including hallucinations, reasoning errors, agent planning failures, runtime exceptions, and instruction-following regressions to improve model reliability.
-          </li>
-
-          <li>
-            Authored high-difficulty reasoning tasks, multimodal benchmarks, evaluation rubrics, and reference solutions supporting large-scale AI evaluation and quality assurance.
-          </li>
-
-        </ul>
-
-      </div>
-
-      <!-- REALITY AI LAB -->
-
-      <div class="minimal-card scroll-reveal">
-
-        <div class="flex justify-between items-start gap-8 mb-6">
-        
           <div>
-        
-            <h3 class="text-3xl font-bold text-slate-900">
-              Reality AI Lab
-            </h3>
-        
-            <p class="text-xl font-semibold text-violet-600 mt-1">
-              Generative AI Engineer
-            </p>
-        
-            <p class="text-sm text-slate-500 mt-2">
-              2025 • Remote (United States)
-            </p>
-        
+            <h3>Recognition</h3>
+            <ul class="cred-list">
+              <li><strong>Ninth Prize, Kimber Health × ISAC Member Story Program</strong><span>Top-10 finalist for an essay on the international student experience, Jan 2026. <a href="https://www.kimberhealth.com/en/story/job-search-healthcare-adjustment-university-at-buffalo" target="_blank" rel="noopener">Read the featured story</a></span></li>
+              <li><strong>AI Pro Bono Reviewer, Metabob</strong><span>Improved Python code with AI-based code review, with Dr. Fabian Eggers (Menlo College), 2021</span></li>
+            </ul>
           </div>
-        
-          <img
-            src="realityai.jpeg"
-            alt="Reality AI Lab"
-            class="company-logo"
-          >
-        
+          <div>
+            <h3>Volunteering</h3>
+            <ul class="cred-list">
+              <li><strong>Research Fund Reviewer, University at Buffalo</strong><span>Scored graduate funding applications for the Mark Diamond Research Fund, 2025</span></li>
+              <li><strong>Women in Science and Engineering (WiSE)</strong><span>STEM events, mentoring and outreach, University at Buffalo, 2023–2025</span></li>
+              <li><strong>Community Volunteer, Lions Clubs International</strong><span>Food relief packing and distribution, 2025</span></li>
+              <li><strong>Solar Charge Controller</strong><span>Designed and built backup power for a government school in Kolavade, Pune, 2018</span></li>
+            </ul>
+          </div>
         </div>
-
-        <div class="flex flex-wrap gap-2 mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">RAG</span>
-          <span class="skill-pill px-4 py-2 rounded-full">FastAPI</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Vertex AI</span>
-          <span class="skill-pill px-4 py-2 rounded-full">LangChain</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Gemini</span>
-
-        </div>
-
-        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
-
-          <li>
-            Built production-ready AI applications using Google Vertex AI, Gemini models, and LangChain to automate content generation and intelligent knowledge retrieval workflows.
-          </li>
-
-          <li>
-            Developed FastAPI-based backend services and modular AI pipelines supporting Retrieval-Augmented Generation (RAG), prompt orchestration, and long-context LLM applications.
-          </li>
-
-          <li>
-            Designed scalable document ingestion, preprocessing, and evaluation workflows while collaborating with frontend and backend engineers to deliver reliable AI-powered user experiences.
-          </li>
-
-        </ul>
-
       </div>
+    </section>
 
-      <!-- MOCAPAY -->
+    <!-- RECOMMENDATIONS -->
+    <section id="recommendations">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Colleagues say</h2>
+          <p>From recommendations on my LinkedIn profile.</p>
+        </div>
+        <div class="quotes">
+          <blockquote>
+            <p>“Aishwarya brings a calm, focused energy to her work, and consistently delivers high-quality results.”</p>
+            <footer><b>Kavita Dhameniya</b>, DevOps Engineer, worked together at Mocapay</footer>
+          </blockquote>
+          <blockquote>
+            <p>“Someone the team could always rely on during tight deadlines.”</p>
+            <footer><b>Ankit Rathore</b>, Lead DevSecOps Engineer, worked together at TCS</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
 
-      <div class="minimal-card scroll-reveal">
-
-          <div class="flex justify-between items-start gap-8 mb-6">
-          
-            <div>
-          
-              <h3 class="text-3xl font-bold text-slate-900">
-                Mocapay
-              </h3>
-          
-              <p class="text-xl font-semibold text-violet-600 mt-1">
-                Software Engineer (Backend)
-              </p>
-          
-              <p class="text-sm text-slate-500 mt-2">
-                2021 – 2023 • Delhi, India
-              </p>
-          
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <h2>Let's talk</h2>
+            <p>I'm open to roles in AI evaluation, benchmark engineering and reliable AI systems, in Bengaluru or remote.</p>
+          </div>
+          <div class="contact-links">
+            <a class="btn" href="mailto:ashnayakwork@gmail.com">Email me</a>
+            <div class="icon-links">
+              <a class="icon-link" href="https://www.linkedin.com/in/aishwarya-nayak-/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+              <a class="icon-link" href="https://github.com/A1SHWARYANAYAK" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3"/></svg>
+              </a>
             </div>
-          
-            <img
-              src="mocapay.jpeg"
-              alt="Mocapay"
-              class="company-logo"
-            >
-          
           </div>
-
-        <div class="flex flex-wrap gap-2 mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">Microservices</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Kafka</span>
-          <span class="skill-pill px-4 py-2 rounded-full">REST APIs</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Java</span>
-
         </div>
-
-        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
-
-          <li>
-            Built and maintained reactive Scala microservices supporting fintech products generating over $10M in annual revenue.
-          </li>
-
-          <li>
-            Designed REST APIs and Kafka-driven event workflows powering large-scale transaction processing and asynchronous business operations.
-          </li>
-
-          <li>
-            Reduced deployment cycles by 30% through CI/CD automation using Jenkins and Docker while improving platform reliability.
-          </li>
-
-        </ul>
-
       </div>
+    </section>
 
-      <!-- TCS -->
+  </main>
 
-      <div class="minimal-card scroll-reveal">
-
-          <div class="flex justify-between items-start gap-8 mb-6">
-          
-            <div>
-          
-              <h3 class="text-3xl font-bold text-slate-900">
-                Tata Consultancy Services (TCS)
-              </h3>
-          
-              <p class="text-xl font-semibold text-violet-600 mt-1">
-                Software Engineer
-              </p>
-          
-              <p class="text-sm text-slate-500 mt-2">
-                2020 – 2021 • Indore, India
-              </p>
-          
-            </div>
-          
-            <img
-              src="tcs.jpeg"
-              alt="Tata Consultancy Services"
-              class="company-logo"
-            >
-          
-          </div>
-
-        <div class="flex flex-wrap gap-2 mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">Backend</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Distributed Systems</span>
-          <span class="skill-pill px-4 py-2 rounded-full">Enterprise Software</span>
-
-        </div>
-
-        <ul class="list-disc pl-5 space-y-3 text-slate-700 leading-8">
-
-          <li>
-            Developed enterprise finance-platform services supporting the management of 1,000+ client contracts and core business workflows.
-          </li>
-
-          <li>
-            Optimized cloud infrastructure across AWS and GCP environments, reducing operational costs by 15% while maintaining performance and availability.
-          </li>
-
-          <li>
-            Improved database performance and deployment efficiency through SQL optimization, automated testing, and CI/CD implementation.
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
- <!-- PROJECTS -->
-
-<section id="projects" class="py-28 px-5 bg-about">
-
-  <div class="max-w-6xl mx-auto">
-
-    <h2 class="text-4xl font-bold text-center text-slate-900">
-      Featured AI Projects
-    </h2>
-
-    <div class="divider"></div>
-
-    <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- CodeSage -->
-
-      <div class="minimal-card scroll-reveal">
-
-        <h3 class="text-2xl font-semibold text-slate-900 mb-4">
-          CodeSage
-        </h3>
-
-        <p class="text-slate-700 leading-relaxed mb-6 flex-grow">
-
-          AI-powered repository intelligence platform built using LangGraph multi-agent workflows to analyze software repositories, understand project architecture, and generate contextual insights for developers.
-
-        </p>
-
-        <div class="flex flex-wrap gap-2 mt-auto mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            LangGraph
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            Multi-Agent AI
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            FastAPI
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            LLM Engineering
-          </span>
-
-        </div>
-
-        <a
-          href="https://github.com/A1SHWARYANAYAK/codesage"
-          target="_blank"
-          class="text-violet-600 font-medium hover:text-violet-800"
-        >
-          View Code →
-        </a>
-
-      </div>
-
-      <!-- Enterprise Knowledge Copilot -->
-
-      <div class="minimal-card scroll-reveal">
-
-        <h3 class="text-2xl font-semibold text-slate-900 mb-4">
-          Enterprise Knowledge Copilot
-        </h3>
-
-        <p class="text-slate-700 leading-relaxed mb-6 flex-grow">
-
-          Production-ready Retrieval-Augmented Generation (RAG) platform enabling intelligent conversations with enterprise documents through semantic search, vector retrieval, and local LLM-powered question answering.
-
-        </p>
-
-        <div class="flex flex-wrap gap-2 mt-auto mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            RAG
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            LangChain
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            ChromaDB
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            FastAPI
-          </span>
-
-        </div>
-
-        <a
-          href="https://github.com/A1SHWARYANAYAK/enterprise-knowledge-copilot"
-          target="_blank"
-          class="text-violet-600 font-medium hover:text-violet-800"
-        >
-          View Code →
-        </a>
-
-      </div>
-
-      <!-- Transcript Intelligence -->
-
-      <div class="minimal-card scroll-reveal">
-
-        <h3 class="text-2xl font-semibold text-slate-900 mb-4">
-          Transcript Intelligence
-        </h3>
-
-        <p class="text-slate-700 leading-relaxed mb-6 flex-grow">
-
-          AI-powered transcript intelligence platform that transforms lengthy conversations into structured summaries, action items, semantic search, and contextual business insights using Large Language Models.
-
-        </p>
-
-        <div class="flex flex-wrap gap-2 mt-auto mb-6">
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            NLP
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            RAG
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            FastAPI
-          </span>
-
-          <span class="skill-pill px-4 py-2 rounded-full">
-            OpenAI
-          </span>
-
-        </div>
-
-        <a
-          href="https://github.com/A1SHWARYANAYAK/transcript-intelligence"
-          target="_blank"
-          class="text-violet-600 font-medium hover:text-violet-800"
-        >
-          View Code →
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills" class="py-24 px-5 bg-skills">
-
-  <div class="max-w-6xl mx-auto scroll-reveal">
-
-    <h2 class="text-4xl font-bold text-slate-900 text-center">
-      Technical Expertise
-    </h2>
-
-    <div class="divider"></div>
-
-    <div class="grid md:grid-cols-2 gap-6 mt-14">
-
-      <!-- AI & LLM -->
-
-      <div class="skill-group p-7 rounded-3xl bg-white border border-slate-200">
-        <h3 class="text-lg font-semibold text-slate-900 mb-4">
-          AI & LLM Systems
-        </h3>
-
-        <p class="text-slate-600 leading-7">
-          LLMs · Agentic AI · Multi-Agent Systems · RAG · Prompt Engineering ·
-          AI Evaluation · LangChain · LangGraph · Vertex AI · Gemini API
-        </p>
-      </div>
-
-
-      <!-- Backend -->
-
-      <div class="skill-group p-7 rounded-3xl bg-white border border-slate-200">
-        <h3 class="text-lg font-semibold text-slate-900 mb-4">
-          Backend Engineering
-        </h3>
-
-        <p class="text-slate-600 leading-7">
-          FastAPI · REST APIs · Microservices · Apache Kafka · Distributed Systems
-        </p>
-      </div>
-
-
-      <!-- Cloud -->
-
-      <div class="skill-group p-7 rounded-3xl bg-white border border-slate-200">
-        <h3 class="text-lg font-semibold text-slate-900 mb-4">
-          Cloud & DevOps
-        </h3>
-
-        <p class="text-slate-600 leading-7">
-          Docker · Kubernetes · AWS · GCP · GitHub Actions · Jenkins · CI/CD
-        </p>
-      </div>
-
-
-      <!-- Programming -->
-
-      <div class="skill-group p-7 rounded-3xl bg-white border border-slate-200">
-        <h3 class="text-lg font-semibold text-slate-900 mb-4">
-          Programming Languages
-        </h3>
-
-        <p class="text-slate-600 leading-7">
-          Python · Java · Scala · JavaScript · TypeScript · SQL
-        </p>
-      </div>
-
-
-      <!-- Databases -->
-
-      <div class="skill-group p-7 rounded-3xl bg-white border border-slate-200">
-        <h3 class="text-lg font-semibold text-slate-900 mb-4">
-          Databases & Search
-        </h3>
-
-        <p class="text-slate-600 leading-7">
-          MySQL · ChromaDB · Apache Solr
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-  <!-- CONTACT -->
-
-  <section id="contact" class="py-28 px-5 bg-contact">
-
-    <div class="max-w-4xl mx-auto text-center scroll-reveal">
-
-      <div class="contact-card">
-
-        <h2 class="text-4xl font-bold text-slate-900">
-          Let's Connect
-        </h2>
-
-        <div class="divider"></div>
-
-          <p class="max-w-3xl mx-auto mt-6 text-lg leading-relaxed text-slate-700">
-              Interested in AI, collaboration, or simply exchanging ideas? I'd love to connect.
-          </p>
-
-        <!-- CONTACT BUTTON -->
-
-        <div class="mt-12">
-
-          <a
-            href="mailto:ashnayakwork@gmail.com"
-            class="contact-btn inline-flex items-center gap-3 px-10 py-5 rounded-full text-lg"
-          >
-
-            <i class="fas fa-paper-plane"></i>
-
-            Contact Me
-
-          </a>
-
-        </div>
-
-        <!-- SOCIALS -->
-
-        <div class="mt-14 flex items-center justify-center gap-10 text-3xl text-slate-500">
-
-          <a
-            href="https://www.linkedin.com/in/aishwarya-nayak-/"
-            target="_blank"
-            class="hover:text-pink-500 transition"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-
-          <a
-            href="https://github.com/A1SHWARYANAYAK"
-            target="_blank"
-            class="hover:text-pink-500 transition"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer class="py-8 text-center text-slate-500 text-sm bg-white border-t border-slate-200">
-
-    © 2026 Aishwarya Nayak. All rights reserved.
-
+  <footer class="site">
+    <div class="wrap">© 2026 Aishwarya Nayak</div>
   </footer>
 
-  <!-- SCROLL REVEAL -->
-
   <script>
-    /* MOBILE MENU */
-      
-      const menuBtn = document.getElementById("menu-btn");
-      
-      const mobileMenu = document.getElementById("mobile-menu");
-      
-      menuBtn.addEventListener("click", () => {
-      
-          mobileMenu.classList.toggle("hidden");
-      
-          menuBtn.innerHTML =
-              mobileMenu.classList.contains("hidden")
-                  ? '<i class="fas fa-bars"></i>'
-                  : '<i class="fas fa-times"></i>';
-      
-      });
-      
-      document.querySelectorAll("#mobile-menu a").forEach(link => {
-      
-          link.addEventListener("click", () => {
-      
-              mobileMenu.classList.add("hidden");
-      
-              menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      
-          });
-      
-      });
-
-    const observer = new IntersectionObserver((entries) => {
-
-      entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add('visible');
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    }, {
-
-      threshold: 0.02,
-
-      rootMargin: '0px 0px -40px 0px'
-
+    // Mobile menu
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      const open = menu.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+      toggle.textContent = open ? "Close" : "Menu";
     });
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "Menu";
+    }));
 
-    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    // Nav border once the page scrolls
+    const nav = document.getElementById("nav");
+    const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
-      observer.observe(el);
-
-    });
-
+    // The one motion moment: the benchmark run plays line by line on load
+    const lines = document.querySelectorAll("#term .term-line");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      lines.forEach(l => l.classList.add("on"));
+    } else {
+      lines.forEach((l, i) => setTimeout(() => l.classList.add("on"), 400 + i * 260));
+    }
   </script>
-
 </body>
-
 </html>
