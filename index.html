@@ -6,7 +6,7 @@
   <title>Aishwarya Nayak | AI Evaluation & Benchmark Engineer</title>
   <meta name="description" content="Aishwarya Nayak is an AI Engineer specialising in AI evaluation, benchmark engineering and reliable AI systems. 5+ years in software and AI, MS in Data Science from the University at Buffalo." />
   <meta property="og:title" content="Aishwarya Nayak | AI Evaluation & Benchmark Engineer" />
-  <meta property="og:description" content="I build software-engineering benchmarks that show where AI coding agents succeed and where they fail." />
+  <meta property="og:description" content="I build and review software-engineering benchmarks that show where AI coding agents succeed and where they fail." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://a1shwaryanayak.github.io/" />
 
@@ -145,10 +145,16 @@
     @keyframes blink { 50% { opacity: 0; } }
     .term-caption { margin-top: 16px; font-size: .85rem; color: var(--muted); text-align: right; }
 
+    .term-tabs { display: flex; gap: 8px; margin-top: 18px; justify-content: flex-end; }
+    .term-tab { font: inherit; font-size: .85rem; font-weight: 600; padding: 6px 14px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: background .15s, color .15s; }
+    .term-tab:hover { background: var(--lilac); }
+    .term-tab[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
     @media (max-width: 900px) {
       .hero .wrap { grid-template-columns: 1fr; }
       .term { transform: none; }
       .term-caption { text-align: left; }
+      .term-tabs { justify-content: flex-start; }
     }
 
     /* SECTIONS */
@@ -262,8 +268,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#credentials">Credentials</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a class="btn btn-solid" href="Aishwarya_Nayak_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-      </ul>
+              </ul>
     </div>
   </nav>
 
@@ -275,14 +280,13 @@
         <div>
           <h1>I find where AI agents break, so they can be trusted.</h1>
           <p class="hero-lede">
-            I'm an <strong>AI Evaluation Engineer</strong>. I design software-engineering benchmarks and the tests behind them, to show how well AI coding agents fix real bugs and where they fall short.
+            I'm an <strong>AI Evaluation Engineer</strong>. I design software-engineering benchmarks, and review the tasks, rubrics and tests behind them, to show how well AI coding agents fix real bugs and where they fall short.
           </p>
           <div class="hero-actions">
             <a class="btn btn-solid" href="#experience">See my experience</a>
-            <a class="btn btn-line" href="Aishwarya_Nayak_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
           </div>
           <div class="hero-meta">
-            <span><i class="dot" aria-hidden="true"></i>Open to work</span>
+            <span><i class="dot" aria-hidden="true"></i>Currently at Google (via xWF, Wipro)</span>
             <span>5+ years in software and AI</span>
             <span>MS Data Science, University at Buffalo</span>
             <span>Bengaluru, India</span>
@@ -290,9 +294,9 @@
         </div>
 
         <div>
-          <div class="term" role="img" aria-label="Illustration of a benchmark run: the reference solution passes all tests, while the agent's attempt fails three of twelve fail-to-pass tests.">
-            <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><b>benchmark run</b></div>
-            <div class="term-body" id="term" aria-hidden="true">
+          <div class="term" id="term-box" role="img" aria-label="Illustration of a benchmark run: the reference solution passes all tests, while the agent's attempt fails three of twelve fail-to-pass tests.">
+            <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><b id="term-title">benchmark run</b></div>
+            <div class="term-body" data-view="0" aria-hidden="true">
               <div class="term-line"><span class="t-dim">$</span> <span class="t-cmd">harbor run tasks/cache-lock-contention</span></div>
               <div class="term-line t-dim">building isolated docker environment ... done</div>
               <div class="term-line"> </div>
@@ -307,8 +311,31 @@
               <div class="term-line t-note">finding: readers still wait on the write lock under load</div>
               <div class="term-line"><span class="t-dim">$</span> <span class="caret"></span></div>
             </div>
+            <div class="term-body" data-view="1" aria-hidden="true" hidden>
+              <div class="term-line"><span class="t-dim">$</span> <span class="t-cmd">review tasks/cache-lock-contention</span></div>
+              <div class="term-line t-dim">reading prompt, reference fix and rubric ... done</div>
+              <div class="term-line"> </div>
+              <div class="term-line">prompt</div>
+              <div class="term-line">  ambiguity      <span class="t-note">1 flagged</span></div>
+              <div class="term-line t-dim">    "make reads faster" has no measurable target</div>
+              <div class="term-line"> </div>
+              <div class="term-line">reference fix</div>
+              <div class="term-line">  requirements   <span class="t-pass">5/5 met</span></div>
+              <div class="term-line">  unintended     <span class="t-fail">1 change</span> <span class="t-dim">(unrelated config reformatted)</span></div>
+              <div class="term-line"> </div>
+              <div class="term-line">rubric, 8 constraints</div>
+              <div class="term-line">  clear          <span class="t-pass">6</span></div>
+              <div class="term-line">  flagged        <span class="t-note">2</span> <span class="t-dim">(one exact function name required; "code is clean" can't be verified)</span></div>
+              <div class="term-line"> </div>
+              <div class="term-line t-note">finding: rewrite 3 items, keep intent, allow other valid fixes</div>
+              <div class="term-line"><span class="t-dim">$</span> <span class="caret"></span></div>
+            </div>
           </div>
-          <p class="term-caption">An illustration of the kind of task I design and check.</p>
+          <div class="term-tabs" role="group" aria-label="Choose illustration">
+            <button type="button" class="term-tab" data-view="0" aria-pressed="true">Benchmark run</button>
+            <button type="button" class="term-tab" data-view="1" aria-pressed="false">Task review</button>
+          </div>
+          <p class="term-caption" id="term-caption">An illustration of the kind of task I design and check.</p>
         </div>
       </div>
     </header>
@@ -323,7 +350,7 @@
           <h2>About me</h2>
           <div class="about-text" style="margin-top:24px">
             <p>I started out as a backend engineer on fintech and enterprise platforms, where I learned to care about tests, code reviews and catching problems before users do. Moving into AI evaluation felt like a natural next step: the question is the same, only the system being tested has changed.</p>
-            <p>Being both a builder and a tester shapes how I work. When a benchmark says an agent failed, I want to know whether the agent was wrong or the test was. Next, I want to take more ownership of how AI initiatives are planned and delivered, and grow toward technical leadership.</p>
+            <p>Being both a builder and a tester shapes how I work. When a benchmark says an agent failed, I want to know whether the agent was wrong or the test was. That is why I now spend much of my time auditing the benchmarks themselves: the prompts, reference solutions and rubrics that decide what a score really means.</p>
           </div>
         </div>
       </div>
@@ -338,6 +365,31 @@
         </div>
 
         <ol class="timeline">
+
+          <li class="job">
+            <div class="job-org">
+              <img src="google.jpeg" alt="" />
+              <div>
+                <h3>Google</h3>
+                <p>Via xWF, Wipro, Nov 2026 – Present</p>
+              </div>
+            </div>
+            <div class="roles">
+              <div class="role">
+                <h4>AI Research Engineer, AI Coding Benchmark Evaluation</h4>
+                <p class="when">Nov 2026 – Present</p>
+                <ul>
+                  <li>Review the quality of AI coding benchmark tasks built to test coding agents on real-world software engineering requests, so that each task measures what it claims to.</li>
+                  <li>Assess task prompts for clarity, ambiguity, completeness, feasibility and solvability within the given repository and context.</li>
+                  <li>Evaluate golden reference solutions for correctness, completeness, fidelity to the user's requirements and unintended changes.</li>
+                  <li>Audit evaluation rubrics and individual constraints for fairness, accuracy, objectivity and alignment with the task, flagging criteria that are overly strict, lenient, ambiguous, redundant, contradictory or unverifiable and could lead to wrong model assessments.</li>
+                  <li>Recommend improvements to prompts, rubrics and constraints that strengthen the reliability and validity of AI coding evaluations.</li>
+                  <li>Rewrite ambiguous instructions and criteria while preserving the user's intent and leaving room for multiple valid implementations.</li>
+                </ul>
+                <ul class="tags" aria-label="Tools"><li>Benchmark review</li><li>Rubric audit</li><li>Reference solution review</li><li>Quality assurance</li></ul>
+              </div>
+            </div>
+          </li>
 
           <li class="job">
             <div class="job-org">
@@ -454,7 +506,7 @@
           <p>The tools I use day to day.</p>
         </div>
         <div class="skill-rows">
-          <div class="skill-row"><h3>AI evaluation</h3><ul class="tags"><li>Benchmark engineering</li><li>Terminal-Bench</li><li>Harbor</li><li>Fail-to-pass / pass-to-pass tests</li><li>Rubric-based evaluation</li><li>Model failure analysis</li><li>Model validation</li></ul></div>
+          <div class="skill-row"><h3>AI evaluation</h3><ul class="tags"><li>Benchmark engineering</li><li>Benchmark task review</li><li>Rubric design and audit</li><li>Reference solution review</li><li>Terminal-Bench</li><li>Harbor</li><li>Fail-to-pass / pass-to-pass tests</li><li>Rubric-based evaluation</li><li>Model failure analysis</li><li>Model validation</li></ul></div>
           <div class="skill-row"><h3>AI and LLMs</h3><ul class="tags"><li>Large language models</li><li>AI agents</li><li>Prompt engineering</li><li>Vertex AI</li><li>Gemini</li><li>LangChain</li><li>LangGraph</li></ul></div>
           <div class="skill-row"><h3>Engineering</h3><ul class="tags"><li>Python</li><li>Java</li><li>Scala</li><li>SQL</li><li>FastAPI</li><li>REST APIs</li><li>Kafka</li><li>pytest</li><li>Test-driven development</li></ul></div>
           <div class="skill-row"><h3>Infrastructure</h3><ul class="tags"><li>Docker</li><li>Linux</li><li>Git</li><li>Jenkins</li><li>GitHub Actions</li><li>AWS</li><li>GCP</li></ul></div>
@@ -569,8 +621,8 @@
       <div class="wrap">
         <div class="contact-box">
           <div>
-            <h2>Let's talk</h2>
-            <p>I'm open to roles in AI evaluation, benchmark engineering and reliable AI systems, in Bengaluru or remote.</p>
+            <h2>Get in touch</h2>
+            <p>Happy to talk about AI evaluation, benchmark engineering and reliable AI systems.</p>
           </div>
           <div class="contact-links">
             <a class="btn" href="mailto:ashnayakwork@gmail.com">Email me</a>
@@ -614,13 +666,43 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // The one motion moment: the benchmark run plays line by line on load
-    const lines = document.querySelectorAll("#term .term-line");
+    // The one motion moment: the benchmark run plays line by line, then the task review follows
+    const box = document.getElementById("term-box");
+    const title = document.getElementById("term-title");
+    const caption = document.getElementById("term-caption");
+    const panels = document.querySelectorAll(".term-body");
+    const tabs = document.querySelectorAll(".term-tab");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      lines.forEach(l => l.classList.add("on"));
-    } else {
-      lines.forEach((l, i) => setTimeout(() => l.classList.add("on"), 400 + i * 260));
+    const views = [
+      { title: "benchmark run", caption: "An illustration of the kind of task I design and check.", label: "Illustration of a benchmark run: the reference solution passes all tests, while the agent's attempt fails three of twelve fail-to-pass tests." },
+      { title: "task review", caption: "An illustration of the kind of review I do on benchmark tasks.", label: "Illustration of a task review: one ambiguous prompt, one unintended change in the reference fix and two flawed rubric constraints are flagged for rewriting." }
+    ];
+    let timers = [];
+    let touched = false;
+
+    function show(n) {
+      timers.forEach(clearTimeout);
+      timers = [];
+      panels.forEach(p => { p.hidden = Number(p.dataset.view) !== n; });
+      tabs.forEach(t => t.setAttribute("aria-pressed", Number(t.dataset.view) === n ? "true" : "false"));
+      title.textContent = views[n].title;
+      caption.textContent = views[n].caption;
+      box.setAttribute("aria-label", views[n].label);
+      const lines = panels[n].querySelectorAll(".term-line");
+      lines.forEach(l => l.classList.remove("on"));
+      if (reduce) {
+        lines.forEach(l => l.classList.add("on"));
+        return 0;
+      }
+      lines.forEach((l, i) => timers.push(setTimeout(() => l.classList.add("on"), 400 + i * 260)));
+      return 400 + lines.length * 260;
+    }
+
+    tabs.forEach(t => t.addEventListener("click", () => { touched = true; show(Number(t.dataset.view)); }));
+
+    const firstDuration = show(0);
+    if (!reduce) {
+      setTimeout(() => { if (!touched) show(1); }, firstDuration + 3000);
     }
   </script>
 </body>
